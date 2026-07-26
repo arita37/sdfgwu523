@@ -1,0 +1,27 @@
+name: ads_googleai
+
+# Required repository secret:
+#   BRIGHT_DATA_API_KEY - Bright Data API key with Google AI Mode access
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ads_googleai
+  cancel-in-progress: false
+
+env:
+  PYTHON_VERSION: "3.11"
+  WORKDIR: uinterface/zernio
+
+jobs:
+  secret-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: harshahemanth/secret-scan@v1
+        with:
+          path: ${{ env.WORKDIR }}
