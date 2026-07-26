@@ -1,8 +1,13 @@
-name: auto1
+name: aa_auto
+
+# Required repository secret:
+#   BRIGHT_DATA_API_KEY - Bright Data API key with Google AI Mode access
 
 on:
+  schedule:
+    - cron: "*/30 * * * *"
   workflow_dispatch:
-
+  
 permissions:
   contents: read
 
@@ -12,13 +17,62 @@ concurrency:
 
 env:
   PYTHON_VERSION: "3.11"
-  WORKDIR: uinterface/zernio
+  WORKDIR: .
 
 jobs:
-  secret-scan:
+  # secret-scan:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - uses: harshahemanth/secret-scan@v1
+  #       with:
+  #         path: ${{ env.WORKDIR }}
+
+  google-ai-mode:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
-      - uses: harshahemanth/secret-scan@v1
+      - name: Checkout
+        uses: actions/checkout@v5
         with:
-          path: ${{ env.WORKDIR }}
+         ref: 'dev'
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Install dependencies
+        run: python -m pip install fire requests
+
+      - name: Run random Google AI Mode query
+        env:
+          BRIGHT_DATA_API_KEY: ${{ secrets.BRIGHT_DATA_API_KEY }}
+        run: |
+          test -n "$BRIGHT_DATA_API_KEY"
+          python zerno/run.py search_googleai_v1
+
+
+
+      # - name: Commit Google AI response
+      #   env:
+      #     TARGET_REF: ${{ github.ref_name }}
+      #   run: |
+      #     git config user.name "github-actions[bot]"
+      #     git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      #     git add .
+      #     if git diff --cached --quiet; then
+      #       echo "No Google AI response to commit"
+      #       exit 0
+      #     fi
+      #     git commit -m "data(zernio): add response run=${GITHUB_RUN_ID}"
+      #     for attempt in 1 2 3 4 5; do
+      #       echo "Push attempt ${attempt}/5"
+      #       if git pull --rebase origin "$TARGET_REF" &&
+      #         git push origin "HEAD:$TARGET_REF"; then
+      #         exit 0
+      #       fi
+      #       sleep $((RANDOM % 5 + 2))
+      #     done
+      #     echo "Failed to push Google AI response after 5 attempts" >&2
+      #     exit 1
