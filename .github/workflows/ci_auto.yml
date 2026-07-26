@@ -4,8 +4,10 @@ name: aa_auto
 #   BRIGHT_DATA_API_KEY - Bright Data API key with Google AI Mode access
 
 on:
+  schedule:
+    - cron: "0 */3 * * *"
   workflow_dispatch:
-
+  
 permissions:
   contents: read
 
