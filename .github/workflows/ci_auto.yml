@@ -1,4 +1,4 @@
-name: ads_googleai
+name: aa_auto
 
 # Required repository secret:
 #   BRIGHT_DATA_API_KEY - Bright Data API key with Google AI Mode access
@@ -49,7 +49,7 @@ jobs:
           PYTHONPATH: ${{ github.workspace }}/uinterface/sdk_python:${{ github.workspace }}
         run: |
           test -n "$BRIGHT_DATA_API_KEY"
-          python uinterface/zernio/run.py search_googleai_v1
+          python zerno/run.py search_googleai_v1
 
       - name: Upload Google AI response
         uses: actions/upload-artifact@v4
