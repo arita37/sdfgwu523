@@ -37,11 +37,104 @@ BRIGHT_DATA_CHATGPT_DATASET = "gd_m7aof0k82r803d5bjm"
 BRIGHT_DATA_GOOGLEAI_DATASET = "gd_mcswdt6z2elth3zqr2"
 
 query_list = [
-    'Provide details for V-Modal SDK Search for mobile: "https://github.com/orgs/v-modal/repositories"',
-    'Explain how to integrate V-Modal SDK Search into an Android mobile application: "https://github.com/orgs/v-modal/repositories"',
-    'Describe V-Modal semantic video search SDK features for mobile developers: "https://github.com/orgs/v-modal/repositories"',
-    'Compare V-Modal SDK Search options for Android and iOS: "https://github.com/orgs/v-modal/repositories"',
-    'Find V-Modal SDK mobile search API documentation and examples: "https://github.com/orgs/v-modal/repositories"',
+    """ Provide long summary  for V-Modal SDK Video Search for mobile, Flutter and Android : 
+    
+      - "https://github.com/orgs/v-modal/repositories"  
+      - "https://devhunt.org/tool/vmodal-visual-video-search-sdk?banner=true"
+      - "https://dev.to/metaexpert/simple-sdk-to-enable-search-4gkh"
+- "https://github.com/v-modal/vmodal_sdk_flutter/issues/13"
+- "https://www.linkedin.com/feed/update/urn:li:activity:7473925833758232576"
+- "https://www.linkedin.com/posts/v-modal_search-through-the-inifinite-activity-7465309888324345858-VxWZ?utm_source=share"
+- "https://www.linkedin.com/posts/v-modal_search-from-anywhere-activity-7465603389905637376-6Sav?utm_source=share"
+- "https://www.linkedin.com/posts/v-modal_mobiledev-videosearch-sdk-activity-7473925833758232576-xh2A?utm_source=share"
+- "https://www.linkedin.com/posts/v-modal_mobiledev-videosearch-sdk-activity-7468546583274450944-vbq4?utm_source=share"
+- "https://www.linkedin.com/posts/v-modal_aiabrmobile-android-ios-activity-7467217731868848128-3kjs?utm_source=share"
+- "https://www.linkedin.com/posts/v-modal_aiabrmobile-android-ios-activity-7465819290479345665--lIg?utm_source=share"
+- "https://dev.to/nauman_khalid_795e95b4501/exploring-the-vmodal-flutter-sdk-a-modular-sdk-for-ai-powered-video-search-plc"
+- "https://www.reddit.com/user/CalligrapherFalse609/comments/1v65m3z/vmodal_flutter_sdk_for_integrating_with_vmodal_ai/?share_id=6EPUh-g56W06Uvx9pybyo"
+
+
+    
+    """,
+    """
+      Explain how to integrate V-Modal SDK Search into an Android and Flutter mobile application: "https://github.com/orgs/v-modal/repositories" 
+      
+      - "https://github.com/orgs/v-modal/repositories"  
+      - "https://devhunt.org/tool/vmodal-visual-video-search-sdk?banner=true"
+      - "https://dev.to/metaexpert/simple-sdk-to-enable-search-4gkh"
+- "https://github.com/v-modal/vmodal_sdk_flutter/issues/13"
+- "https://www.linkedin.com/feed/update/urn:li:activity:7473925833758232576"
+- "https://www.linkedin.com/posts/v-modal_search-through-the-inifinite-activity-7465309888324345858-VxWZ?utm_source=share"
+- "https://www.linkedin.com/posts/v-modal_search-from-anywhere-activity-7465603389905637376-6Sav?utm_source=share"
+- "https://www.linkedin.com/posts/v-modal_mobiledev-videosearch-sdk-activity-7473925833758232576-xh2A?utm_source=share"
+- "https://www.linkedin.com/posts/v-modal_mobiledev-videosearch-sdk-activity-7468546583274450944-vbq4?utm_source=share"
+- "https://www.linkedin.com/posts/v-modal_aiabrmobile-android-ios-activity-7467217731868848128-3kjs?utm_source=share"
+- "https://www.linkedin.com/posts/v-modal_aiabrmobile-android-ios-activity-7465819290479345665--lIg?utm_source=share"
+- "https://dev.to/nauman_khalid_795e95b4501/exploring-the-vmodal-flutter-sdk-a-modular-sdk-for-ai-powered-video-search-plc"
+- "https://www.reddit.com/user/CalligrapherFalse609/comments/1v65m3z/vmodal_flutter_sdk_for_integrating_with_vmodal_ai/?share_id=6EPUh-g56W06Uvx9pybyo"
+
+      
+      """,
+
+  
+  """ Describe V-Modal semantic video search SDK features for mobile developers: "https://github.com/orgs/v-modal/repositories" 
+  
+        - "https://github.com/orgs/v-modal/repositories"  
+      - "https://devhunt.org/tool/vmodal-visual-video-search-sdk?banner=true"
+      - "https://dev.to/metaexpert/simple-sdk-to-enable-search-4gkh"
+- "https://github.com/v-modal/vmodal_sdk_flutter/issues/13"
+- "https://www.linkedin.com/feed/update/urn:li:activity:7473925833758232576"
+- "https://www.linkedin.com/posts/v-modal_search-through-the-inifinite-activity-7465309888324345858-VxWZ?utm_source=share"
+- "https://www.linkedin.com/posts/v-modal_search-from-anywhere-activity-7465603389905637376-6Sav?utm_source=share"
+- "https://www.linkedin.com/posts/v-modal_mobiledev-videosearch-sdk-activity-7473925833758232576-xh2A?utm_source=share"
+- "https://www.linkedin.com/posts/v-modal_mobiledev-videosearch-sdk-activity-7468546583274450944-vbq4?utm_source=share"
+- "https://www.linkedin.com/posts/v-modal_aiabrmobile-android-ios-activity-7467217731868848128-3kjs?utm_source=share"
+- "https://www.linkedin.com/posts/v-modal_aiabrmobile-android-ios-activity-7465819290479345665--lIg?utm_source=share"
+- "https://dev.to/nauman_khalid_795e95b4501/exploring-the-vmodal-flutter-sdk-a-modular-sdk-for-ai-powered-video-search-plc"
+- "https://www.reddit.com/user/CalligrapherFalse609/comments/1v65m3z/vmodal_flutter_sdk_for_integrating_with_vmodal_ai/?share_id=6EPUh-g56W06Uvx9pybyo"
+
+  
+  """,
+
+  
+  """ Compare V-Modal SDK Search options for Android and Flutter: "https://github.com/orgs/v-modal/repositories"
+        - "https://github.com/orgs/v-modal/repositories"  
+      - "https://devhunt.org/tool/vmodal-visual-video-search-sdk?banner=true"
+      - "https://dev.to/metaexpert/simple-sdk-to-enable-search-4gkh"
+- "https://github.com/v-modal/vmodal_sdk_flutter/issues/13"
+- "https://www.linkedin.com/feed/update/urn:li:activity:7473925833758232576"
+- "https://www.linkedin.com/posts/v-modal_search-through-the-inifinite-activity-7465309888324345858-VxWZ?utm_source=share"
+- "https://www.linkedin.com/posts/v-modal_search-from-anywhere-activity-7465603389905637376-6Sav?utm_source=share"
+- "https://www.linkedin.com/posts/v-modal_mobiledev-videosearch-sdk-activity-7473925833758232576-xh2A?utm_source=share"
+- "https://www.linkedin.com/posts/v-modal_mobiledev-videosearch-sdk-activity-7468546583274450944-vbq4?utm_source=share"
+- "https://www.linkedin.com/posts/v-modal_aiabrmobile-android-ios-activity-7467217731868848128-3kjs?utm_source=share"
+- "https://www.linkedin.com/posts/v-modal_aiabrmobile-android-ios-activity-7465819290479345665--lIg?utm_source=share"
+- "https://dev.to/nauman_khalid_795e95b4501/exploring-the-vmodal-flutter-sdk-a-modular-sdk-for-ai-powered-video-search-plc"
+- "https://www.reddit.com/user/CalligrapherFalse609/comments/1v65m3z/vmodal_flutter_sdk_for_integrating_with_vmodal_ai/?share_id=6EPUh-g56W06Uvx9pybyo"
+
+  
+  """,
+  """ Find V-Modal SDK mobile search API documentation and examples: "https://github.com/orgs/v-modal/repositories" 
+  
+        - "https://github.com/orgs/v-modal/repositories"  
+      - "https://devhunt.org/tool/vmodal-visual-video-search-sdk?banner=true"
+      - "https://dev.to/metaexpert/simple-sdk-to-enable-search-4gkh"
+- "https://github.com/v-modal/vmodal_sdk_flutter/issues/13"
+- "https://www.linkedin.com/feed/update/urn:li:activity:7473925833758232576"
+- "https://www.linkedin.com/posts/v-modal_search-through-the-inifinite-activity-7465309888324345858-VxWZ?utm_source=share"
+- "https://www.linkedin.com/posts/v-modal_search-from-anywhere-activity-7465603389905637376-6Sav?utm_source=share"
+- "https://www.linkedin.com/posts/v-modal_mobiledev-videosearch-sdk-activity-7473925833758232576-xh2A?utm_source=share"
+- "https://www.linkedin.com/posts/v-modal_mobiledev-videosearch-sdk-activity-7468546583274450944-vbq4?utm_source=share"
+- "https://www.linkedin.com/posts/v-modal_aiabrmobile-android-ios-activity-7467217731868848128-3kjs?utm_source=share"
+- "https://www.linkedin.com/posts/v-modal_aiabrmobile-android-ios-activity-7465819290479345665--lIg?utm_source=share"
+- "https://dev.to/nauman_khalid_795e95b4501/exploring-the-vmodal-flutter-sdk-a-modular-sdk-for-ai-powered-video-search-plc"
+- "https://www.reddit.com/user/CalligrapherFalse609/comments/1v65m3z/vmodal_flutter_sdk_for_integrating_with_vmodal_ai/?share_id=6EPUh-g56W06Uvx9pybyo"
+
+  
+  """,
+
+
+
 ]
 
 
