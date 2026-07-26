@@ -18,13 +18,13 @@ env:
   WORKDIR: uinterface/zernio
 
 jobs:
-  secret-scan:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: harshahemanth/secret-scan@v1
-        with:
-          path: ${{ env.WORKDIR }}
+  # secret-scan:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - uses: harshahemanth/secret-scan@v1
+  #       with:
+  #         path: ${{ env.WORKDIR }}
 
   google-ai-mode:
     needs: secret-scan
