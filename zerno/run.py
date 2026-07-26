@@ -306,6 +306,7 @@ def create_post(
     if not md_text:
         raise RuntimeError("Bright Data response did not contain post text")
 
+    print(md_text)
     os.makedirs(dir_asset, exist_ok=True)
     post_path = os.path.join(dir_asset, "post.md")
     result_path = os.path.join(dir_asset, "result.json")
