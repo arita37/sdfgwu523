@@ -14,7 +14,6 @@ from typing import List, Dict, Tuple, Optional, Any, Union
 from dataclasses import dataclass
 import os,sys
 import fire
-from src.utils.util_log import log_info, log_error, log_trace, log_warning
 
 import json
 import random
@@ -22,6 +21,14 @@ import uuid
 from datetime import datetime, timezone
 
 import requests
+
+def log_info(*s):
+  print(*s)
+
+log_error = log_info
+log_trace = log_info
+log_warning = log_info
+
 
 
 ZERNIO_URL = "https://zernio.com/api/v1"
