@@ -17,7 +17,7 @@ concurrency:
 
 env:
   PYTHON_VERSION: "3.11"
-  WORKDIR: uinterface/zernio
+  WORKDIR: .
 
 jobs:
   # secret-scan:
@@ -63,7 +63,7 @@ jobs:
             echo "No Google AI response to commit"
             exit 0
           fi
-          git commit -m "data(zernio): add Google AI response run=${GITHUB_RUN_ID}"
+          git commit -m "data(zernio): add response run=${GITHUB_RUN_ID}"
           for attempt in 1 2 3 4 5; do
             echo "Push attempt ${attempt}/5"
             if git pull --rebase origin "$TARGET_REF" &&
