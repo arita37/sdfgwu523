@@ -216,6 +216,7 @@ def search_googleai(
         params=params,
         timeout=timeout,
     )
+    print(data)
     if dirout:
         os.makedirs(os.path.dirname(dirout) or ".", exist_ok=True)
         with open(dirout, "w", encoding="utf-8") as f:
