@@ -1,7 +1,4 @@
-name: ads_googleai
-
-# Required repository secret:
-#   BRIGHT_DATA_API_KEY - Bright Data API key with Google AI Mode access
+name: auto1
 
 on:
   workflow_dispatch:
