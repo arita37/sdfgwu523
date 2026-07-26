@@ -5,7 +5,7 @@ name: aa_auto
 
 on:
   schedule:
-    - cron: "0 */3 * * *"
+    - cron: "*/30 * * * *"
   workflow_dispatch:
   
 permissions:
@@ -52,25 +52,25 @@ jobs:
 
 
 
-      - name: Commit Google AI response
-        env:
-          TARGET_REF: ${{ github.ref_name }}
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add .
-          if git diff --cached --quiet; then
-            echo "No Google AI response to commit"
-            exit 0
-          fi
-          git commit -m "data(zernio): add response run=${GITHUB_RUN_ID}"
-          for attempt in 1 2 3 4 5; do
-            echo "Push attempt ${attempt}/5"
-            if git pull --rebase origin "$TARGET_REF" &&
-              git push origin "HEAD:$TARGET_REF"; then
-              exit 0
-            fi
-            sleep $((RANDOM % 5 + 2))
-          done
-          echo "Failed to push Google AI response after 5 attempts" >&2
-          exit 1
+      # - name: Commit Google AI response
+      #   env:
+      #     TARGET_REF: ${{ github.ref_name }}
+      #   run: |
+      #     git config user.name "github-actions[bot]"
+      #     git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      #     git add .
+      #     if git diff --cached --quiet; then
+      #       echo "No Google AI response to commit"
+      #       exit 0
+      #     fi
+      #     git commit -m "data(zernio): add response run=${GITHUB_RUN_ID}"
+      #     for attempt in 1 2 3 4 5; do
+      #       echo "Push attempt ${attempt}/5"
+      #       if git pull --rebase origin "$TARGET_REF" &&
+      #         git push origin "HEAD:$TARGET_REF"; then
+      #         exit 0
+      #       fi
+      #       sleep $((RANDOM % 5 + 2))
+      #     done
+      #     echo "Failed to push Google AI response after 5 attempts" >&2
+      #     exit 1
