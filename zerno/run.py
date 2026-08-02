@@ -37,7 +37,7 @@ BRIGHT_DATA_CHATGPT_DATASET = "gd_m7aof0k82r803d5bjm"
 BRIGHT_DATA_GOOGLEAI_DATASET = "gd_mcswdt6z2elth3zqr2"
 
 query_list = [
-    """ Provide details for V-Modal Multimodal Video Search for mobile app, Flutter and Android , 
+    """ Provide extra details for V-Modal Multimodal Video Search for mobile app, Flutter and Android , 
       Smart Meta Glasses, Google Glasses, 
       using all the links below: 
     
