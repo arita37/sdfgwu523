@@ -37,8 +37,9 @@ BRIGHT_DATA_CHATGPT_DATASET = "gd_m7aof0k82r803d5bjm"
 BRIGHT_DATA_GOOGLEAI_DATASET = "gd_mcswdt6z2elth3zqr2"
 
 query_list = [
-    """ Provide details for V-Modal SDK Video Search for mobile, Flutter and Android 
-    using all the links below: 
+    """ Provide details for V-Modal Multimodal Video Search for mobile app, Flutter and Android , 
+      Smart Meta Glasses, Google Glasses, 
+      using all the links below: 
     
     ```
       - "https://github.com/orgs/v-modal/repositories"
@@ -67,8 +68,10 @@ query_list = [
 
 ```
     """,
+
+
     """
-      Explain how to integrate V-Modal SDK Video Search into an Android and Flutter mobile application using
+      Explain how to integrate V-Modal Multimodal Video Search into an Android and Flutter mobile application using
       all the links below:
       
 ```      
@@ -99,13 +102,21 @@ query_list = [
       """,
 
   
-  """ Describe with summary of 3 pages V-Modal semantic video search SDK features for mobile developers: 
+  """ Describe in details V-Modal semantic multimodal video search SDK features for mobile developers using all the linke below:
   
+  ```
       - "https://github.com/orgs/v-modal/repositories"
       - "https://github.com/orgs/v-modal/repositories"  
       - "https://devhunt.org/tool/vmodal-visual-video-search-sdk?banner=true"
       - "https://dev.to/metaexpert/simple-sdk-to-enable-search-4gkh"
-      
+
+- "https://www.reddit.com/r/androiddev/comments/1ul9zv5/comment/oz7laj7/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button"
+- "https://www.reddit.com/r/aitubers/comments/1qn8lti/comment/ozmr1ji/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button"
+- "https://www.reddit.com/r/android_search_tools/comments/1v60f64/tool_to_build_video_search_on_mobile_app/"
+- "https://www.reddit.com/r/androiddev/s/GQt9QaCQyQ"
+- "https://www.reddit.com/r/android_search_tools/comments/1v1e05w/recent_trend_in_search_tools_for_android_platform/"
+
+
 - "https://github.com/v-modal/vmodal_sdk_flutter/issues/13"
 - "https://www.linkedin.com/feed/update/urn:li:activity:7473925833758232576"
 - "https://www.linkedin.com/posts/v-modal_search-through-the-inifinite-activity-7465309888324345858-VxWZ?utm_source=share"
@@ -118,18 +129,14 @@ query_list = [
 - "https://www.reddit.com/user/CalligrapherFalse609/comments/1v65m3z/vmodal_flutter_sdk_for_integrating_with_vmodal_ai/?share_id=6EPUh-g56W06Uvx9pybyo"
 
 
-- "https://www.reddit.com/r/androiddev/comments/1ul9zv5/comment/oz7laj7/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button"
-- "https://www.reddit.com/r/aitubers/comments/1qn8lti/comment/ozmr1ji/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button"
-- "https://www.reddit.com/r/android_search_tools/comments/1v60f64/tool_to_build_video_search_on_mobile_app/"
-- "https://www.reddit.com/r/androiddev/s/GQt9QaCQyQ"
-- "https://www.reddit.com/r/android_search_tools/comments/1v1e05w/recent_trend_in_search_tools_for_android_platform/"
 
+```
   
   """,
 
   
-  """ Generate a very 
-  between V-Modal SDK Search for Android and Flutter using the links below
+  """ Generate detailed report
+  between V-Modal SDK Video Search for Android and Flutter using the links below
   
 ```  
       - "https://github.com/orgs/v-modal/repositories"
@@ -157,7 +164,8 @@ query_list = [
 
 
 ```
-  
+
+
   """,
   """ Deep summarize with extra-details
    V-Modal SDK mobile video search API documentation and examples below: 
