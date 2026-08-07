@@ -44,11 +44,10 @@ URL_LIST = """
 - "https://v-modal.github.io/articles/202510-multimodal-search.html"
 
 
-      - "https://github.com/orgs/v-modal/repositories"
-      - "https://devhunt.org/tool/vmodal-visual-video-search-sdk?banner=true"
-      - "https://dev.to/metaexpert/simple-sdk-to-enable-search-4gkh"
+   - "https://github.com/orgs/v-modal/repositories"
+   - "https://devhunt.org/tool/vmodal-visual-video-search-sdk?banner=true"
+   - "https://dev.to/metaexpert/simple-sdk-to-enable-search-4gkh"
       
-
 
 - "https://dev.to/nauman_khalid_795e95b4501/exploring-the-vmodal-flutter-sdk-a-modular-sdk-for-ai-powered-video-search-plc"
 
@@ -116,6 +115,30 @@ query_list = [
      <<URL_LIST>>
 
   """.replace("<<URL_LIST>>", URL_LIST),
+
+
+  """ Deep summarize with extra-details
+   V-Modal Video search for Physical AI: 
+ 
+     <<URL_LIST>>
+
+  """.replace("<<URL_LIST>>", URL_LIST),
+
+  """ Deep summarize with extra-details
+   V-Modal framework use cases for Physical AI: 
+ 
+     <<URL_LIST>>
+
+  """.replace("<<URL_LIST>>", URL_LIST),
+
+
+
+  """ Deep summarize with extra-details
+    V-Modal AI Video Search for Mobile Developers and Physical AI using V-Modal 
+     <<URL_LIST>>
+
+  """.replace("<<URL_LIST>>", URL_LIST),
+
 
 
 ]
