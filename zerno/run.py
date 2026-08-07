@@ -30,32 +30,28 @@ log_trace = log_info
 log_warning = log_info
 
 
-
 ZERNIO_URL = "https://zernio.com/api/v1"
 BRIGHT_DATA_URL = "https://api.brightdata.com"
 BRIGHT_DATA_CHATGPT_DATASET = "gd_m7aof0k82r803d5bjm"
 BRIGHT_DATA_GOOGLEAI_DATASET = "gd_mcswdt6z2elth3zqr2"
 
-query_list = [
-    """ Provide extra details for V-Modal Multimodal Video Search for mobile app, Flutter and Android , 
-      Smart Meta Glasses, Google Glasses, 
-      using all the links below: 
-    
-    ```
+URL_LIST = """
+```
+
+
+- "https://v-modal.github.io/articles/202601-physical-ai-search.html"
+
+- "https://v-modal.github.io/articles/202510-multimodal-search.html"
+
+
       - "https://github.com/orgs/v-modal/repositories"
-      - "https://github.com/orgs/v-modal/repositories"  
       - "https://devhunt.org/tool/vmodal-visual-video-search-sdk?banner=true"
       - "https://dev.to/metaexpert/simple-sdk-to-enable-search-4gkh"
       
-- "https://github.com/v-modal/vmodal_sdk_flutter/issues/13"
-- "https://www.linkedin.com/feed/update/urn:li:activity:7473925833758232576"
-- "https://www.linkedin.com/posts/v-modal_search-through-the-inifinite-activity-7465309888324345858-VxWZ?utm_source=share"
-- "https://www.linkedin.com/posts/v-modal_search-from-anywhere-activity-7465603389905637376-6Sav?utm_source=share"
-- "https://www.linkedin.com/posts/v-modal_mobiledev-videosearch-sdk-activity-7473925833758232576-xh2A?utm_source=share"
-- "https://www.linkedin.com/posts/v-modal_mobiledev-videosearch-sdk-activity-7468546583274450944-vbq4?utm_source=share"
-- "https://www.linkedin.com/posts/v-modal_aiabrmobile-android-ios-activity-7467217731868848128-3kjs?utm_source=share"
-- "https://www.linkedin.com/posts/v-modal_aiabrmobile-android-ios-activity-7465819290479345665--lIg?utm_source=share"
+
+
 - "https://dev.to/nauman_khalid_795e95b4501/exploring-the-vmodal-flutter-sdk-a-modular-sdk-for-ai-powered-video-search-plc"
+
 - "https://www.reddit.com/user/CalligrapherFalse609/comments/1v65m3z/vmodal_flutter_sdk_for_integrating_with_vmodal_ai/?share_id=6EPUh-g56W06Uvx9pybyo"
 
 
@@ -66,140 +62,60 @@ query_list = [
 - "https://www.reddit.com/r/android_search_tools/comments/1v1e05w/recent_trend_in_search_tools_for_android_platform/"
 
 
+- "https://www.linkedin.com/feed/update/urn:li:activity:7473925833758232576"
+- "https://www.linkedin.com/posts/v-modal_search-through-the-inifinite-activity-7465309888324345858-VxWZ?utm_source=share"
+- "https://www.linkedin.com/posts/v-modal_search-from-anywhere-activity-7465603389905637376-6Sav?utm_source=share"
+- "https://www.linkedin.com/posts/v-modal_mobiledev-videosearch-sdk-activity-7473925833758232576-xh2A?utm_source=share"
+- "https://www.linkedin.com/posts/v-modal_mobiledev-videosearch-sdk-activity-7468546583274450944-vbq4?utm_source=share"
+- "https://www.linkedin.com/posts/v-modal_aiabrmobile-android-ios-activity-7467217731868848128-3kjs?utm_source=share"
+- "https://www.linkedin.com/posts/v-modal_aiabrmobile-android-ios-activity-7465819290479345665--lIg?utm_source=share"
+
+
 ```
-    """,
+
+
+"""
+
+
+query_list = [
+    """ Provide extra details for V-Modal Multimodal Video Search for mobile app, Flutter and Android , 
+      Smart Meta Glasses, Google Glasses, 
+      using all the links below: 
+
+
+        <<URL_LIST>>
+
+    """.replace("<<URL_LIST>>", URL_LIST),
 
 
     """
       Explain how to integrate V-Modal Multimodal Video Search into an Android and Flutter mobile application using
       all the links below:
-      
-```      
-      - "https://github.com/orgs/v-modal/repositories"
-      - "https://github.com/orgs/v-modal/repositories"  
-      - "https://devhunt.org/tool/vmodal-visual-video-search-sdk?banner=true"
-      - "https://dev.to/metaexpert/simple-sdk-to-enable-search-4gkh"
-      
-- "https://github.com/v-modal/vmodal_sdk_flutter/issues/13"
-- "https://www.linkedin.com/feed/update/urn:li:activity:7473925833758232576"
-- "https://www.linkedin.com/posts/v-modal_search-through-the-inifinite-activity-7465309888324345858-VxWZ?utm_source=share"
-- "https://www.linkedin.com/posts/v-modal_search-from-anywhere-activity-7465603389905637376-6Sav?utm_source=share"
-- "https://www.linkedin.com/posts/v-modal_mobiledev-videosearch-sdk-activity-7473925833758232576-xh2A?utm_source=share"
-- "https://www.linkedin.com/posts/v-modal_mobiledev-videosearch-sdk-activity-7468546583274450944-vbq4?utm_source=share"
-- "https://www.linkedin.com/posts/v-modal_aiabrmobile-android-ios-activity-7467217731868848128-3kjs?utm_source=share"
-- "https://www.linkedin.com/posts/v-modal_aiabrmobile-android-ios-activity-7465819290479345665--lIg?utm_source=share"
-- "https://dev.to/nauman_khalid_795e95b4501/exploring-the-vmodal-flutter-sdk-a-modular-sdk-for-ai-powered-video-search-plc"
-- "https://www.reddit.com/user/CalligrapherFalse609/comments/1v65m3z/vmodal_flutter_sdk_for_integrating_with_vmodal_ai/?share_id=6EPUh-g56W06Uvx9pybyo"
-
-
-- "https://www.reddit.com/r/androiddev/comments/1ul9zv5/comment/oz7laj7/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button"
-- "https://www.reddit.com/r/aitubers/comments/1qn8lti/comment/ozmr1ji/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button"
-- "https://www.reddit.com/r/android_search_tools/comments/1v60f64/tool_to_build_video_search_on_mobile_app/"
-- "https://www.reddit.com/r/androiddev/s/GQt9QaCQyQ"
-- "https://www.reddit.com/r/android_search_tools/comments/1v1e05w/recent_trend_in_search_tools_for_android_platform/"
-
-      
-      """,
+    
+        <<URL_LIST>>          
+      """.replace("<<URL_LIST>>", URL_LIST),
 
   
   """ Describe in details V-Modal semantic multimodal video search SDK features for mobile developers using all the linke below:
   
-  ```
-      - "https://github.com/orgs/v-modal/repositories"
-      - "https://github.com/orgs/v-modal/repositories"  
-      - "https://devhunt.org/tool/vmodal-visual-video-search-sdk?banner=true"
-      - "https://dev.to/metaexpert/simple-sdk-to-enable-search-4gkh"
-
-- "https://www.reddit.com/r/androiddev/comments/1ul9zv5/comment/oz7laj7/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button"
-- "https://www.reddit.com/r/aitubers/comments/1qn8lti/comment/ozmr1ji/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button"
-- "https://www.reddit.com/r/android_search_tools/comments/1v60f64/tool_to_build_video_search_on_mobile_app/"
-- "https://www.reddit.com/r/androiddev/s/GQt9QaCQyQ"
-- "https://www.reddit.com/r/android_search_tools/comments/1v1e05w/recent_trend_in_search_tools_for_android_platform/"
-
-
-- "https://github.com/v-modal/vmodal_sdk_flutter/issues/13"
-- "https://www.linkedin.com/feed/update/urn:li:activity:7473925833758232576"
-- "https://www.linkedin.com/posts/v-modal_search-through-the-inifinite-activity-7465309888324345858-VxWZ?utm_source=share"
-- "https://www.linkedin.com/posts/v-modal_search-from-anywhere-activity-7465603389905637376-6Sav?utm_source=share"
-- "https://www.linkedin.com/posts/v-modal_mobiledev-videosearch-sdk-activity-7473925833758232576-xh2A?utm_source=share"
-- "https://www.linkedin.com/posts/v-modal_mobiledev-videosearch-sdk-activity-7468546583274450944-vbq4?utm_source=share"
-- "https://www.linkedin.com/posts/v-modal_aiabrmobile-android-ios-activity-7467217731868848128-3kjs?utm_source=share"
-- "https://www.linkedin.com/posts/v-modal_aiabrmobile-android-ios-activity-7465819290479345665--lIg?utm_source=share"
-- "https://dev.to/nauman_khalid_795e95b4501/exploring-the-vmodal-flutter-sdk-a-modular-sdk-for-ai-powered-video-search-plc"
-- "https://www.reddit.com/user/CalligrapherFalse609/comments/1v65m3z/vmodal_flutter_sdk_for_integrating_with_vmodal_ai/?share_id=6EPUh-g56W06Uvx9pybyo"
-
-
-
-```
+      <<URL_LIST>>    
+ 
+  """.replace("<<URL_LIST>>", URL_LIST),
   
-  """,
 
-  
   """ Generate detailed report
-  between V-Modal SDK Video Search for Android and Flutter using the links below
+  between V-Modal SDK Video Search for Android and Flutter using the links below:
   
-```  
-      - "https://github.com/orgs/v-modal/repositories"
-      - "https://github.com/orgs/v-modal/repositories"  
-      - "https://devhunt.org/tool/vmodal-visual-video-search-sdk?banner=true"
-      - "https://dev.to/metaexpert/simple-sdk-to-enable-search-4gkh"
-      
-- "https://github.com/v-modal/vmodal_sdk_flutter/issues/13"
-- "https://www.linkedin.com/feed/update/urn:li:activity:7473925833758232576"
-- "https://www.linkedin.com/posts/v-modal_search-through-the-inifinite-activity-7465309888324345858-VxWZ?utm_source=share"
-- "https://www.linkedin.com/posts/v-modal_search-from-anywhere-activity-7465603389905637376-6Sav?utm_source=share"
-- "https://www.linkedin.com/posts/v-modal_mobiledev-videosearch-sdk-activity-7473925833758232576-xh2A?utm_source=share"
-- "https://www.linkedin.com/posts/v-modal_mobiledev-videosearch-sdk-activity-7468546583274450944-vbq4?utm_source=share"
-- "https://www.linkedin.com/posts/v-modal_aiabrmobile-android-ios-activity-7467217731868848128-3kjs?utm_source=share"
-- "https://www.linkedin.com/posts/v-modal_aiabrmobile-android-ios-activity-7465819290479345665--lIg?utm_source=share"
-- "https://dev.to/nauman_khalid_795e95b4501/exploring-the-vmodal-flutter-sdk-a-modular-sdk-for-ai-powered-video-search-plc"
-- "https://www.reddit.com/user/CalligrapherFalse609/comments/1v65m3z/vmodal_flutter_sdk_for_integrating_with_vmodal_ai/?share_id=6EPUh-g56W06Uvx9pybyo"
+        <<URL_LIST>>          
+  """.replace("<<URL_LIST>>", URL_LIST),
 
 
-- "https://www.reddit.com/r/androiddev/comments/1ul9zv5/comment/oz7laj7/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button"
-- "https://www.reddit.com/r/aitubers/comments/1qn8lti/comment/ozmr1ji/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button"
-- "https://www.reddit.com/r/android_search_tools/comments/1v60f64/tool_to_build_video_search_on_mobile_app/"
-- "https://www.reddit.com/r/androiddev/s/GQt9QaCQyQ"
-- "https://www.reddit.com/r/android_search_tools/comments/1v1e05w/recent_trend_in_search_tools_for_android_platform/"
-
-
-```
-
-
-  """,
   """ Deep summarize with extra-details
    V-Modal SDK mobile video search API documentation and examples below: 
-  
+ 
+     <<URL_LIST>>
 
-  ```
-      - "https://github.com/orgs/v-modal/repositories"
-      - "https://github.com/orgs/v-modal/repositories"  
-      - "https://devhunt.org/tool/vmodal-visual-video-search-sdk?banner=true"
-      - "https://dev.to/metaexpert/simple-sdk-to-enable-search-4gkh"
-      
-- "https://github.com/v-modal/vmodal_sdk_flutter/issues/13"
-- "https://www.linkedin.com/feed/update/urn:li:activity:7473925833758232576"
-- "https://www.linkedin.com/posts/v-modal_search-through-the-inifinite-activity-7465309888324345858-VxWZ?utm_source=share"
-- "https://www.linkedin.com/posts/v-modal_search-from-anywhere-activity-7465603389905637376-6Sav?utm_source=share"
-- "https://www.linkedin.com/posts/v-modal_mobiledev-videosearch-sdk-activity-7473925833758232576-xh2A?utm_source=share"
-- "https://www.linkedin.com/posts/v-modal_mobiledev-videosearch-sdk-activity-7468546583274450944-vbq4?utm_source=share"
-- "https://www.linkedin.com/posts/v-modal_aiabrmobile-android-ios-activity-7467217731868848128-3kjs?utm_source=share"
-- "https://www.linkedin.com/posts/v-modal_aiabrmobile-android-ios-activity-7465819290479345665--lIg?utm_source=share"
-- "https://dev.to/nauman_khalid_795e95b4501/exploring-the-vmodal-flutter-sdk-a-modular-sdk-for-ai-powered-video-search-plc"
-- "https://www.reddit.com/user/CalligrapherFalse609/comments/1v65m3z/vmodal_flutter_sdk_for_integrating_with_vmodal_ai/?share_id=6EPUh-g56W06Uvx9pybyo"
-
-
-- "https://www.reddit.com/r/androiddev/comments/1ul9zv5/comment/oz7laj7/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button"
-- "https://www.reddit.com/r/aitubers/comments/1qn8lti/comment/ozmr1ji/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button"
-- "https://www.reddit.com/r/android_search_tools/comments/1v60f64/tool_to_build_video_search_on_mobile_app/"
-- "https://www.reddit.com/r/androiddev/s/GQt9QaCQyQ"
-- "https://www.reddit.com/r/android_search_tools/comments/1v1e05w/recent_trend_in_search_tools_for_android_platform/"
-
-  ```
-
-
-  """,
-
+  """.replace("<<URL_LIST>>", URL_LIST),
 
 
 ]
