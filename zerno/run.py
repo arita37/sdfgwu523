@@ -77,25 +77,20 @@ URL_LIST = """
 
 
 query_list = [
-    """ Provide extra details for V-Modal Multimodal Video Search for mobile app, Flutter and Android , 
-      Smart Meta Glasses, Google Glasses, 
-      using all the links below: 
-
-
+    """ Provide Deep summary of below content 
+      related to Smart Meta Glasses, Google Glasses: 
         <<URL_LIST>>
 
     """.replace("<<URL_LIST>>", URL_LIST),
 
 
     """
-      Explain how to integrate V-Modal Multimodal Video Search into an Android and Flutter mobile application using
-      all the links below:
-    
+    Deep summary about integration of  V-Modal Multimodal Video Search with mobile  
         <<URL_LIST>>          
       """.replace("<<URL_LIST>>", URL_LIST),
 
   
-  """ Describe in details V-Modal semantic multimodal video search SDK features for mobile developers using all the linke below:
+  """ Deep summary of V-Modal AI Video Search for Physical using the content below
   
       <<URL_LIST>>    
  
@@ -103,14 +98,14 @@ query_list = [
   
 
   """ Generate detailed report
-  between V-Modal SDK Video Search for Android and Flutter using the links below:
+       between V-Modal SDK Video Search for Android and Flutter using the links below:
   
         <<URL_LIST>>          
   """.replace("<<URL_LIST>>", URL_LIST),
 
 
-  """ Deep summarize with extra-details
-   V-Modal SDK mobile video search API documentation and examples below: 
+  """ Deep summarize 
+   V-Modal SDK mobile video search API documentation  and Physical AI with content below: 
  
      <<URL_LIST>>
 
