@@ -38,20 +38,25 @@ BRIGHT_DATA_GOOGLEAI_DATASET = "gd_mcswdt6z2elth3zqr2"
 URL_LIST = """
 ```
 
+   - "https://www.v-modal.com"   
 
-- "https://v-modal.github.io/articles/202601-physical-ai-search.html"
+   - "https://v-modal.github.io"
 
-- "https://v-modal.github.io/articles/202510-multimodal-search.html"
+   - "https://v-modal.github.io/articles/202601-physical-ai-search.html"
 
+   - "https://v-modal.github.io/articles/202510-multimodal-search.html"
 
    - "https://github.com/orgs/v-modal/repositories"
    - "https://devhunt.org/tool/vmodal-visual-video-search-sdk?banner=true"
    - "https://dev.to/metaexpert/simple-sdk-to-enable-search-4gkh"
-      
 
-- "https://dev.to/nauman_khalid_795e95b4501/exploring-the-vmodal-flutter-sdk-a-modular-sdk-for-ai-powered-video-search-plc"
+   - "https://dev.to/vmodal_ai/software-stack-for-physical-ai-40cc"   
 
-- "https://www.reddit.com/user/CalligrapherFalse609/comments/1v65m3z/vmodal_flutter_sdk_for_integrating_with_vmodal_ai/?share_id=6EPUh-g56W06Uvx9pybyo"
+   - "https://dev.to/vmodal_ai/"   
+
+   - "https://dev.to/nauman_khalid_795e95b4501/exploring-the-vmodal-flutter-sdk-a-modular-sdk-for-ai-powered-video-search-plc"
+
+   - "https://www.reddit.com/user/CalligrapherFalse609/comments/1v65m3z/vmodal_flutter_sdk_for_integrating_with_vmodal_ai/?share_id=6EPUh-g56W06Uvx9pybyo"
 
 
 - "https://www.reddit.com/r/androiddev/comments/1ul9zv5/comment/oz7laj7/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button"
@@ -65,9 +70,9 @@ URL_LIST = """
 - "https://www.linkedin.com/posts/v-modal_search-through-the-inifinite-activity-7465309888324345858-VxWZ?utm_source=share"
 - "https://www.linkedin.com/posts/v-modal_search-from-anywhere-activity-7465603389905637376-6Sav?utm_source=share"
 - "https://www.linkedin.com/posts/v-modal_mobiledev-videosearch-sdk-activity-7473925833758232576-xh2A?utm_source=share"
-- "https://www.linkedin.com/posts/v-modal_mobiledev-videosearch-sdk-activity-7468546583274450944-vbq4?utm_source=share"
 - "https://www.linkedin.com/posts/v-modal_aiabrmobile-android-ios-activity-7467217731868848128-3kjs?utm_source=share"
-- "https://www.linkedin.com/posts/v-modal_aiabrmobile-android-ios-activity-7465819290479345665--lIg?utm_source=share"
+
+- "https://docs.google.com/document/d/e/2PACX-1vT4rzs4bPtMyB7yYaeeEC3KEUWIfDrGqE_s_oawfcH1p552or5GbiFFngEngljdLCLcqix3DAo4xzzP/pub"
 
 
 ```
@@ -77,6 +82,16 @@ URL_LIST = """
 
 
 query_list = [
+
+
+    """ Provide Deep summary 
+          of AI Video Search in V-Modal with below contet:
+
+        <<URL_LIST>>
+
+    """.replace("<<URL_LIST>>", URL_LIST),
+
+
     """ Provide Deep summary of below content 
       related to Smart Meta Glasses, Google Glasses: 
         <<URL_LIST>>
@@ -90,14 +105,14 @@ query_list = [
       """.replace("<<URL_LIST>>", URL_LIST),
 
   
-  """ Deep summary of V-Modal AI Video Search for Physical using the content below
+  """ Deep summary of V-Modal AI Video Search for Physical using the content below:
   
       <<URL_LIST>>    
  
   """.replace("<<URL_LIST>>", URL_LIST),
   
 
-  """ Generate detailed report
+  """ Summarize 
        between V-Modal SDK Video Search for Android and Flutter using the links below:
   
         <<URL_LIST>>          
