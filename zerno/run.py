@@ -29,6 +29,7 @@ log_error = log_info
 log_trace = log_info
 log_warning = log_info
 
+# gd_m7aof0k82r803d5bjm
 
 ZERNIO_URL = "https://zernio.com/api/v1"
 BRIGHT_DATA_URL = "https://api.brightdata.com"
@@ -359,6 +360,80 @@ def search_googleai_v1(
     return {"query": query, "dirout": dirout}
 
 
+def search_chatgpt(
+    query: str = "",
+    mode: str = "bright data",
+    hl: str = "en",
+    country: str = "",
+    dirout: str = "ztmp/out.txt",
+    timeout: int = 180,
+) -> Any:
+    """Search ChatGPT through Bright Data and save the full response."""
+    if mode.strip().lower().replace("_", " ") != "bright data":
+        raise ValueError("Only mode='bright data' is supported")
+    if not query.strip():
+        raise ValueError("query is required")
+
+    params = {
+        "dataset_id": BRIGHT_DATA_CHATGPT_DATASET,
+        "notify": "false",
+        "include_errors": "true",
+    }
+    body = {
+        "input": [{
+            "url": "https://chatgpt.com/",
+            "prompt": query,
+            "web_search": True,
+            "additional_prompt": ""
+            }],
+        "limit_per_input": None,
+    }
+    log_info("Searching ChatGPT through Bright Data")
+    data = api_json(
+        "POST",
+        f"{BRIGHT_DATA_URL}/datasets/v3/scrape",
+        os_api_key("BRIGHT_DATA_API_KEY"),
+        body=body,
+        params=params,
+        timeout=timeout,
+    )
+    print(data)
+    if dirout:
+        os.makedirs(os.path.dirname(dirout) or ".", exist_ok=True)
+        with open(dirout, "w", encoding="utf-8") as f:
+            json.dump(data, f, ensure_ascii=False, indent=2)
+            f.write("\n")
+        log_info(f"ChatGPT response saved to {dirout}")
+    return data
+
+
+def search_chatgpt_v1(
+    dirout: str = "zout/{ymd}/chatgpt_resp_{ymd_hms}.json",
+    hl: str = "en",
+    country: str = "",
+    timeout: int = 180,
+) -> Dict[str, str]:
+    """Pick one query randomly and run Bright Data ChatGPT Mode."""
+    now = datetime.now(timezone.utc)
+    dirout = dirout.format(
+        ymd=now.strftime("%Y%m%d"),
+        ymd_hms=now.strftime("%Y%m%d_%H%M%S"),
+    )
+    query = random.choice(query_list)
+    log_info(f"Selected ChatGPT query: {query}")
+    search_chatgpt(
+        query=query,
+        hl=hl,
+        country=country,
+        dirout=dirout,
+        timeout=timeout,
+    )
+    return {"query": query, "dirout": dirout}
+
+
+
+
+
 def create_post(
     prompt: str = "my prompt",
     dir_asset: str = "docs/post_asset/",
@@ -440,4 +515,6 @@ if __name__ == "__main__":
         "create_post": create_post,
         "search_googleai": search_googleai,
         "search_googleai_v1": search_googleai_v1,
+        "search_chatgpt": search_chatgpt,
+        "search_chatgpt_v1": search_chatgpt_v1,
     })
