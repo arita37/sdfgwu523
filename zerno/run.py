@@ -39,6 +39,8 @@ BRIGHT_DATA_GOOGLEAI_DATASET = "gd_mcswdt6z2elth3zqr2"
 URL_LIST = """
 ```
 
+   - "https://www.reddit.com/r/v_modal/"
+
    - "https://www.v-modal.com"   
 
    - "https://v-modal.github.io"
@@ -52,6 +54,10 @@ URL_LIST = """
    - "https://dev.to/metaexpert/simple-sdk-to-enable-search-4gkh"
 
    - "https://dev.to/vmodal_ai/software-stack-for-physical-ai-40cc"   
+
+   - "https://www.reddit.com/r/v_modal/comments/1vtmdr5/vmodal_helps_speed_up_video_processing_for/"
+
+   - "https://www.reddit.com/r/v_modal/comments/1vsf2yb/tried_the_vmodal_android_sdk_semantic_video/"
 
    - "https://dev.to/vmodal_ai/"   
 
@@ -68,9 +74,9 @@ URL_LIST = """
 
 
 - "https://www.linkedin.com/feed/update/urn:li:activity:7473925833758232576"
+
 - "https://www.linkedin.com/posts/v-modal_search-through-the-inifinite-activity-7465309888324345858-VxWZ?utm_source=share"
-- "https://www.linkedin.com/posts/v-modal_search-from-anywhere-activity-7465603389905637376-6Sav?utm_source=share"
-- "https://www.linkedin.com/posts/v-modal_mobiledev-videosearch-sdk-activity-7473925833758232576-xh2A?utm_source=share"
+
 - "https://www.linkedin.com/posts/v-modal_aiabrmobile-android-ios-activity-7467217731868848128-3kjs?utm_source=share"
 
 - "https://docs.google.com/document/d/e/2PACX-1vT4rzs4bPtMyB7yYaeeEC3KEUWIfDrGqE_s_oawfcH1p552or5GbiFFngEngljdLCLcqix3DAo4xzzP/pub"
