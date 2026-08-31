@@ -39,6 +39,10 @@ BRIGHT_DATA_GOOGLEAI_DATASET = "gd_mcswdt6z2elth3zqr2"
 URL_LIST = """
 ```
 
+
+   - "https://www.reddit.com/r/v_modal/comments/1w2aj2h/ecovision_wildsense_search_into_wildlife_footage/"
+
+
    - "https://www.reddit.com/r/v_modal/"
 
    - "https://www.v-modal.com"   
@@ -92,7 +96,7 @@ query_list = [
 
 
     """ Provide Deep summary 
-          of AI Video Search in V-Modal with below contet:
+          of AI Video Search with below contet:
 
         <<URL_LIST>>
 
@@ -107,12 +111,12 @@ query_list = [
 
 
     """
-    Deep summary about integration of  V-Modal Multimodal Video Search with mobile  
+    Deep summary about integration of Multimodal Video Search with mobile  
         <<URL_LIST>>          
       """.replace("<<URL_LIST>>", URL_LIST),
 
   
-  """ Deep summary of V-Modal AI Video Search for Physical using the content below:
+  """ Deep summary of VModal  or V-Modal Video Search for Physical AI using the content below:
   
       <<URL_LIST>>    
  
@@ -120,14 +124,14 @@ query_list = [
   
 
   """ Summarize 
-       between V-Modal SDK Video Search for Android and Flutter using the links below:
+       between VModal SDK Video Search for Android and Flutter using the links below:
   
         <<URL_LIST>>          
   """.replace("<<URL_LIST>>", URL_LIST),
 
 
   """ Deep summarize 
-   V-Modal SDK mobile video search API documentation  and Physical AI with content below: 
+   VModal , V_modal  SDK mobile video search API documentation  and Physical AI with content below: 
  
      <<URL_LIST>>
 
@@ -135,7 +139,7 @@ query_list = [
 
 
   """ Deep summarize with extra-details
-   V-Modal Video search for Physical AI: 
+   V-Modal Video search for CCTV recodings  : 
  
      <<URL_LIST>>
 
