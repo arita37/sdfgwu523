@@ -42,6 +42,12 @@ URL_LIST = """
 
    - "https://www.reddit.com/r/v_modal/comments/1w2aj2h/ecovision_wildsense_search_into_wildlife_footage/"
 
+   - "https://www.reddit.com/r/v_modal/comments/1w8r4gj/sdk_for_physical_ai_robotics_data_flow_streaming/"
+
+   - "https://github.com/v-modal/physical_ai_stack"
+
+
+   - "https://www.reddit.com/r/v_modal/comments/1we2lof/visual_video_search_with_iphone_duo_layout/"
 
    - "https://www.reddit.com/r/v_modal/"
 
@@ -90,6 +96,62 @@ URL_LIST = """
 
 
 """
+
+
+
+################################################################
+URL_LIST2 = """
+```
+
+   - "https://www.reddit.com/r/v_modal/comments/1w2aj2h/ecovision_wildsense_search_into_wildlife_footage/"
+
+   - "https://www.reddit.com/r/v_modal/comments/1w8r4gj/sdk_for_physical_ai_robotics_data_flow_streaming/"
+
+   - "https://github.com/v-modal/physical_ai_stack"
+
+
+   - "https://www.reddit.com/r/v_modal/comments/1we2lof/visual_video_search_with_iphone_duo_layout/"
+
+   - "https://www.reddit.com/r/v_modal/"
+
+   - "https://www.v-modal.com"   
+
+   - "https://v-modal.github.io"
+
+   - "https://v-modal.github.io/articles/202601-physical-ai-search.html"
+
+   - "https://v-modal.github.io/articles/202510-multimodal-search.html"
+
+   - "https://github.com/orgs/v-modal/repositories"
+   - "https://devhunt.org/tool/vmodal-visual-video-search-sdk?banner=true"
+   - "https://dev.to/metaexpert/simple-sdk-to-enable-search-4gkh"
+
+   - "https://dev.to/vmodal_ai/software-stack-for-physical-ai-40cc"   
+
+   - "https://www.reddit.com/r/v_modal/comments/1vtmdr5/vmodal_helps_speed_up_video_processing_for/"
+
+   - "https://www.reddit.com/r/v_modal/comments/1vsf2yb/tried_the_vmodal_android_sdk_semantic_video/"
+
+   - "https://dev.to/vmodal_ai/"   
+
+   - "https://dev.to/nauman_khalid_795e95b4501/exploring-the-vmodal-flutter-sdk-a-modular-sdk-for-ai-powered-video-search-plc"
+
+   - "https://www.reddit.com/user/CalligrapherFalse609/comments/1v65m3z/vmodal_flutter_sdk_for_integrating_with_vmodal_ai/?share_id=6EPUh-g56W06Uvx9pybyo"
+
+
+
+```
+
+
+"""
+
+
+
+
+
+
+
+
 
 
 query_list = [
