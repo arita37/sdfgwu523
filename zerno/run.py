@@ -46,6 +46,7 @@ URL_LIST = """
 
    - "https://github.com/v-modal/physical_ai_stack"
 
+   - "https://share.google/aimode/HxAUMCMOkfAY5jsey"
 
    - "https://www.reddit.com/r/v_modal/comments/1we2lof/visual_video_search_with_iphone_duo_layout/"
 
