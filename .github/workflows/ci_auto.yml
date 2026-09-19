@@ -5,7 +5,7 @@ name: aa_auto
 
 on:
   schedule:
-    - cron: "*/10 * * * *"
+    - cron: "*/7 * * * *"
   workflow_dispatch:
   
 permissions:
