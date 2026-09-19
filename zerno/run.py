@@ -239,9 +239,15 @@ def os_api_key(name: str) -> str:
 
 
 def os_bright_data_api_key() -> str:
-    """Return one of the configured Bright Data API keys at random."""
-    name = random.choice(("BRIGHT_DATA_API_KEY", "BRIGHT_DATA_API_KEY2"))
-    return os_api_key(name)
+    """Return one non-empty Bright Data API key at random."""
+    names = ("BRIGHT_DATA_API_KEY", "BRIGHT_DATA_API_KEY2")
+    keys = [os.environ.get(name, "").strip() for name in names]
+    keys = [key for key in keys if key]
+    if not keys:
+        raise RuntimeError(
+            "BRIGHT_DATA_API_KEY and BRIGHT_DATA_API_KEY2 are missing or empty"
+        )
+    return random.choice(keys)
 
 
 def api_json(
