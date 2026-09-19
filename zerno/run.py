@@ -36,116 +36,123 @@ BRIGHT_DATA_URL = "https://api.brightdata.com"
 BRIGHT_DATA_CHATGPT_DATASET = "gd_m7aof0k82r803d5bjm"
 BRIGHT_DATA_GOOGLEAI_DATASET = "gd_mcswdt6z2elth3zqr2"
 
-URL_LIST = """
-```
+URL_LIST_ALL = [
+
+    """
+        ```
+        - "https://github.com/v-modal/vmodal_sdk_robotics" 
+        
+        - "https://github.com/v-modal/vmodal_sdk_swift_iphoneduo"
+
+        - "https://www.reddit.com/r/v_modal/comments/1w2aj2h/ecovision_wildsense_search_into_wildlife_footage/"
+
+        - "https://www.reddit.com/r/v_modal/comments/1w8r4gj/sdk_for_physical_ai_robotics_data_flow_streaming/"
+
+        - "https://github.com/v-modal/physical_ai_stack"
+
+        - "https://share.google/aimode/HxAUMCMOkfAY5jsey"
+
+        - "https://www.reddit.com/r/v_modal/comments/1we2lof/visual_video_search_with_iphone_duo_layout/"
+
+        - "https://www.reddit.com/r/v_modal/"
+
+        - "https://www.v-modal.com"   
+
+        - "https://v-modal.github.io"
+
+        - "https://v-modal.github.io/articles/202601-physical-ai-search.html"
+
+        - "https://v-modal.github.io/articles/202510-multimodal-search.html"
+
+        - "https://github.com/orgs/v-modal/repositories"
+        - "https://devhunt.org/tool/vmodal-visual-video-search-sdk?banner=true"
+        - "https://dev.to/metaexpert/simple-sdk-to-enable-search-4gkh"
+
+        - "https://dev.to/vmodal_ai/software-stack-for-physical-ai-40cc"   
+
+        - "https://www.reddit.com/r/v_modal/comments/1vtmdr5/vmodal_helps_speed_up_video_processing_for/"
+
+        - "https://www.reddit.com/r/v_modal/comments/1vsf2yb/tried_the_vmodal_android_sdk_semantic_video/"
+
+        - "https://dev.to/vmodal_ai/"   
+
+        - "https://dev.to/nauman_khalid_795e95b4501/exploring-the-vmodal-flutter-sdk-a-modular-sdk-for-ai-powered-video-search-plc"
+
+        - "https://www.reddit.com/user/CalligrapherFalse609/comments/1v65m3z/vmodal_flutter_sdk_for_integrating_with_vmodal_ai/?share_id=6EPUh-g56W06Uvx9pybyo"
 
 
-   - "https://www.reddit.com/r/v_modal/comments/1w2aj2h/ecovision_wildsense_search_into_wildlife_footage/"
+        - "https://www.reddit.com/r/androiddev/comments/1ul9zv5/comment/oz7laj7/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button"
 
-   - "https://www.reddit.com/r/v_modal/comments/1w8r4gj/sdk_for_physical_ai_robotics_data_flow_streaming/"
+        - "https://www.reddit.com/r/aitubers/comments/1qn8lti/comment/ozmr1ji/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button"
 
-   - "https://github.com/v-modal/physical_ai_stack"
+        - "https://www.reddit.com/r/android_search_tools/comments/1v60f64/tool_to_build_video_search_on_mobile_app/"
 
-   - "https://share.google/aimode/HxAUMCMOkfAY5jsey"
-
-   - "https://www.reddit.com/r/v_modal/comments/1we2lof/visual_video_search_with_iphone_duo_layout/"
-
-   - "https://www.reddit.com/r/v_modal/"
-
-   - "https://www.v-modal.com"   
-
-   - "https://v-modal.github.io"
-
-   - "https://v-modal.github.io/articles/202601-physical-ai-search.html"
-
-   - "https://v-modal.github.io/articles/202510-multimodal-search.html"
-
-   - "https://github.com/orgs/v-modal/repositories"
-   - "https://devhunt.org/tool/vmodal-visual-video-search-sdk?banner=true"
-   - "https://dev.to/metaexpert/simple-sdk-to-enable-search-4gkh"
-
-   - "https://dev.to/vmodal_ai/software-stack-for-physical-ai-40cc"   
-
-   - "https://www.reddit.com/r/v_modal/comments/1vtmdr5/vmodal_helps_speed_up_video_processing_for/"
-
-   - "https://www.reddit.com/r/v_modal/comments/1vsf2yb/tried_the_vmodal_android_sdk_semantic_video/"
-
-   - "https://dev.to/vmodal_ai/"   
-
-   - "https://dev.to/nauman_khalid_795e95b4501/exploring-the-vmodal-flutter-sdk-a-modular-sdk-for-ai-powered-video-search-plc"
-
-   - "https://www.reddit.com/user/CalligrapherFalse609/comments/1v65m3z/vmodal_flutter_sdk_for_integrating_with_vmodal_ai/?share_id=6EPUh-g56W06Uvx9pybyo"
+        - "https://www.reddit.com/r/android_search_tools/comments/1v1e05w/recent_trend_in_search_tools_for_android_platform/"
 
 
-- "https://www.reddit.com/r/androiddev/comments/1ul9zv5/comment/oz7laj7/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button"
-- "https://www.reddit.com/r/aitubers/comments/1qn8lti/comment/ozmr1ji/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button"
-- "https://www.reddit.com/r/android_search_tools/comments/1v60f64/tool_to_build_video_search_on_mobile_app/"
-- "https://www.reddit.com/r/androiddev/s/GQt9QaCQyQ"
-- "https://www.reddit.com/r/android_search_tools/comments/1v1e05w/recent_trend_in_search_tools_for_android_platform/"
+        - "https://www.linkedin.com/feed/update/urn:li:activity:7473925833758232576"
+
+        - "https://www.linkedin.com/posts/v-modal_search-through-the-inifinite-activity-7465309888324345858-VxWZ?utm_source=share"
+
+        - "https://www.linkedin.com/posts/v-modal_aiabrmobile-android-ios-activity-7467217731868848128-3kjs?utm_source=share"
+
+        - "https://docs.google.com/document/d/e/2PACX-1vT4rzs4bPtMyB7yYaeeEC3KEUWIfDrGqE_s_oawfcH1p552or5GbiFFngEngljdLCLcqix3DAo4xzzP/pub"
 
 
-- "https://www.linkedin.com/feed/update/urn:li:activity:7473925833758232576"
-
-- "https://www.linkedin.com/posts/v-modal_search-through-the-inifinite-activity-7465309888324345858-VxWZ?utm_source=share"
-
-- "https://www.linkedin.com/posts/v-modal_aiabrmobile-android-ios-activity-7467217731868848128-3kjs?utm_source=share"
-
-- "https://docs.google.com/document/d/e/2PACX-1vT4rzs4bPtMyB7yYaeeEC3KEUWIfDrGqE_s_oawfcH1p552or5GbiFFngEngljdLCLcqix3DAo4xzzP/pub"
+        ```
 
 
-```
+    """
+
+    ,"""
+        ```
+
+        - "https://github.com/v-modal/vmodal_sdk_robotics" 
+        
+        - "https://github.com/v-modal/vmodal_sdk_swift_iphoneduo"
+
+        - "https://www.reddit.com/r/v_modal/comments/1w2aj2h/ecovision_wildsense_search_into_wildlife_footage/"
+
+        - "https://www.reddit.com/r/v_modal/comments/1w8r4gj/sdk_for_physical_ai_robotics_data_flow_streaming/"
+
+        - "https://github.com/v-modal/physical_ai_stack"
 
 
-"""
+        - "https://www.reddit.com/r/v_modal/comments/1we2lof/visual_video_search_with_iphone_duo_layout/"
 
+        - "https://www.reddit.com/r/v_modal/"
 
+        - "https://www.v-modal.com"   
 
-################################################################
-URL_LIST2 = """
-```
+        - "https://v-modal.github.io"
 
-   - "https://www.reddit.com/r/v_modal/comments/1w2aj2h/ecovision_wildsense_search_into_wildlife_footage/"
+        - "https://v-modal.github.io/articles/202601-physical-ai-search.html"
 
-   - "https://www.reddit.com/r/v_modal/comments/1w8r4gj/sdk_for_physical_ai_robotics_data_flow_streaming/"
+        - "https://v-modal.github.io/articles/202510-multimodal-search.html"
 
-   - "https://github.com/v-modal/physical_ai_stack"
+        - "https://github.com/orgs/v-modal/repositories"
+        - "https://devhunt.org/tool/vmodal-visual-video-search-sdk?banner=true"
+        - "https://dev.to/metaexpert/simple-sdk-to-enable-search-4gkh"
 
+        - "https://dev.to/vmodal_ai/software-stack-for-physical-ai-40cc"   
 
-   - "https://www.reddit.com/r/v_modal/comments/1we2lof/visual_video_search_with_iphone_duo_layout/"
+        - "https://www.reddit.com/r/v_modal/comments/1vtmdr5/vmodal_helps_speed_up_video_processing_for/"
 
-   - "https://www.reddit.com/r/v_modal/"
+        - "https://www.reddit.com/r/v_modal/comments/1vsf2yb/tried_the_vmodal_android_sdk_semantic_video/"
 
-   - "https://www.v-modal.com"   
+        - "https://dev.to/vmodal_ai/"   
 
-   - "https://v-modal.github.io"
-
-   - "https://v-modal.github.io/articles/202601-physical-ai-search.html"
-
-   - "https://v-modal.github.io/articles/202510-multimodal-search.html"
-
-   - "https://github.com/orgs/v-modal/repositories"
-   - "https://devhunt.org/tool/vmodal-visual-video-search-sdk?banner=true"
-   - "https://dev.to/metaexpert/simple-sdk-to-enable-search-4gkh"
-
-   - "https://dev.to/vmodal_ai/software-stack-for-physical-ai-40cc"   
-
-   - "https://www.reddit.com/r/v_modal/comments/1vtmdr5/vmodal_helps_speed_up_video_processing_for/"
-
-   - "https://www.reddit.com/r/v_modal/comments/1vsf2yb/tried_the_vmodal_android_sdk_semantic_video/"
-
-   - "https://dev.to/vmodal_ai/"   
-
-   - "https://dev.to/nauman_khalid_795e95b4501/exploring-the-vmodal-flutter-sdk-a-modular-sdk-for-ai-powered-video-search-plc"
-
-   - "https://www.reddit.com/user/CalligrapherFalse609/comments/1v65m3z/vmodal_flutter_sdk_for_integrating_with_vmodal_ai/?share_id=6EPUh-g56W06Uvx9pybyo"
+        - "https://dev.to/nauman_khalid_795e95b4501/exploring-the-vmodal-flutter-sdk-a-modular-sdk-for-ai-powered-video-search-plc"
 
 
 
-```
+
+        ```
 
 
-"""
+    """
 
+]
 
 
 
@@ -163,34 +170,34 @@ query_list = [
 
         <<URL_LIST>>
 
-    """.replace("<<URL_LIST>>", URL_LIST),
+    """.replace("<<URL_LIST>>", random.choice(URL_LIST_ALL)),
 
 
     """ Provide Deep summary of below content 
       related to Smart Meta Glasses, Google Glasses: 
         <<URL_LIST>>
 
-    """.replace("<<URL_LIST>>", URL_LIST),
+    """.replace("<<URL_LIST>>", random.choice(URL_LIST_ALL)),
 
 
     """
-    Deep summary about integration of Multimodal Video Search with mobile  
+    Deep summary about integration of  Video Search   with
         <<URL_LIST>>          
-      """.replace("<<URL_LIST>>", URL_LIST),
+      """.replace("<<URL_LIST>>", random.choice(URL_LIST_ALL)),
 
   
   """ Deep summary of VModal  or V-Modal Video Search for Physical AI using the content below:
   
       <<URL_LIST>>    
  
-  """.replace("<<URL_LIST>>", URL_LIST),
+  """.replace("<<URL_LIST>>", random.choice(URL_LIST_ALL)),
   
 
   """ Summarize 
        between VModal SDK Video Search for Android and Flutter using the links below:
   
         <<URL_LIST>>          
-  """.replace("<<URL_LIST>>", URL_LIST),
+  """.replace("<<URL_LIST>>", random.choice(URL_LIST_ALL)),
 
 
   """ Deep summarize 
@@ -198,7 +205,7 @@ query_list = [
  
      <<URL_LIST>>
 
-  """.replace("<<URL_LIST>>", URL_LIST),
+  """.replace("<<URL_LIST>>", random.choice(URL_LIST_ALL)),
 
 
   """ Deep summarize with extra-details
@@ -206,14 +213,14 @@ query_list = [
  
      <<URL_LIST>>
 
-  """.replace("<<URL_LIST>>", URL_LIST),
+  """.replace("<<URL_LIST>>", random.choice(URL_LIST_ALL)),
 
   """ Deep summarize with extra-details
    V-Modal framework use cases for Physical AI: 
  
      <<URL_LIST>>
 
-  """.replace("<<URL_LIST>>", URL_LIST),
+  """.replace("<<URL_LIST>>", random.choice(URL_LIST_ALL)),
 
 
 
@@ -221,7 +228,7 @@ query_list = [
     V-Modal AI Video Search for Mobile Developers and Physical AI using V-Modal 
      <<URL_LIST>>
 
-  """.replace("<<URL_LIST>>", URL_LIST),
+  """.replace("<<URL_LIST>>", random.choice(URL_LIST_ALL)),
 
 
 
@@ -239,7 +246,7 @@ def os_api_key(name: str) -> str:
 
 
 def os_bright_data_api_key() -> str:
-    """Return one non-empty Bright Data API key at random."""
+    """Return a Bright Data API key using the configured weights."""
     names = ("BRIGHT_DATA_API_KEY", "BRIGHT_DATA_API_KEY2")
     keys = [os.environ.get(name, "").strip() for name in names]
     keys = [key for key in keys if key]
@@ -247,7 +254,9 @@ def os_bright_data_api_key() -> str:
         raise RuntimeError(
             "BRIGHT_DATA_API_KEY and BRIGHT_DATA_API_KEY2 are missing or empty"
         )
-    return random.choice(keys)
+    if len(keys) == 1:
+        return keys[0]
+    return random.choices(keys, weights=(30, 70), k=1)[0]
 
 
 def api_json(
