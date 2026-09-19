@@ -238,6 +238,12 @@ def os_api_key(name: str) -> str:
     return key
 
 
+def os_bright_data_api_key() -> str:
+    """Return one of the configured Bright Data API keys at random."""
+    name = random.choice(("BRIGHT_DATA_API_KEY", "BRIGHT_DATA_API_KEY2"))
+    return os_api_key(name)
+
+
 def api_json(
     method: str,
     url: str,
@@ -394,7 +400,7 @@ def search_googleai(
     data = api_json(
         "POST",
         f"{BRIGHT_DATA_URL}/datasets/v3/scrape",
-        os_api_key("BRIGHT_DATA_API_KEY"),
+        os_bright_data_api_key(),
         body=body,
         params=params,
         timeout=timeout,
@@ -465,7 +471,7 @@ def search_chatgpt(
     data = api_json(
         "POST",
         f"{BRIGHT_DATA_URL}/datasets/v3/scrape",
-        os_api_key("BRIGHT_DATA_API_KEY"),
+        os_bright_data_api_key(),
         body=body,
         params=params,
         timeout=timeout,
@@ -542,7 +548,7 @@ def create_post(
     data = api_json(
         "POST",
         f"{BRIGHT_DATA_URL}/datasets/v3/scrape",
-        os_api_key("BRIGHT_DATA_API_KEY"),
+        os_bright_data_api_key(),
         body=body,
         params=params,
         timeout=timeout,
