@@ -338,7 +338,7 @@ def index_url_submit(
     token: str = "",
     timeout: int = 30,
 ) -> Dict[str, Any]:
-    """Submit new URLs from a Markdown file to IndexJump."""
+    """Submit new URLs to IndexJump and move successes to the done file."""
     with open(urls_path, encoding="utf-8") as f:
         md_text = f.read()
 
@@ -374,6 +374,9 @@ def index_url_submit(
             raise requests.HTTPError(msg, response=res)
         with open(done_path, "a", encoding="utf-8") as f:
             f.write(f"- {url}\n")
+        md_text = md_text.replace(url, "")
+        with open(urls_path, "w", encoding="utf-8") as f:
+            f.write(md_text)
 
     result = {
         "found": len(urls),
