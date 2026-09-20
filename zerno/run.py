@@ -99,6 +99,9 @@ URL_LIST_ALL = [
         - "https://docs.google.com/document/d/e/2PACX-1vT4rzs4bPtMyB7yYaeeEC3KEUWIfDrGqE_s_oawfcH1p552or5GbiFFngEngljdLCLcqix3DAo4xzzP/pub"
 
 
+         - "https://www.reddit.com/r/LLMDevs/comments/1wkrssx/list_of_tools_around_jev_in_production_setup/"
+
+
         ```
 
 
@@ -106,6 +109,8 @@ URL_LIST_ALL = [
 
     ,"""
         ```
+
+        
 
         - "https://github.com/v-modal/vmodal_sdk_robotics" 
         
@@ -117,6 +122,7 @@ URL_LIST_ALL = [
 
         - "https://github.com/v-modal/physical_ai_stack"
 
+        - "https://github.com/v-modal/vmodal_sdk_android/tree/main/examples/06_json_metadata" 
 
         - "https://www.reddit.com/r/v_modal/comments/1we2lof/visual_video_search_with_iphone_duo_layout/"
 
@@ -145,6 +151,7 @@ URL_LIST_ALL = [
         - "https://dev.to/nauman_khalid_795e95b4501/exploring-the-vmodal-flutter-sdk-a-modular-sdk-for-ai-powered-video-search-plc"
 
 
+         - "https://www.reddit.com/r/LLMDevs/comments/1wkrssx/list_of_tools_around_jev_in_production_setup/"
 
 
         ```
@@ -163,6 +170,31 @@ URL_LIST_ALL = [
 
 
 query_list = [
+
+
+    """ Provide Deep summary 
+          of jev tools and VModal with those documents: 
+
+        <<URL_LIST>>
+
+    """.replace("<<URL_LIST>>", random.choice(URL_LIST_ALL)),
+
+
+
+    """ Provide Deep summary 
+          of dashCam Video Search with those documents: 
+
+        <<URL_LIST>>
+
+    """.replace("<<URL_LIST>>", random.choice(URL_LIST_ALL)),
+
+
+    """ Provide Deep summary 
+          of cctv Video Search with those documents: 
+
+        <<URL_LIST>>
+
+    """.replace("<<URL_LIST>>", random.choice(URL_LIST_ALL)),
 
 
     """ Provide Deep summary 
