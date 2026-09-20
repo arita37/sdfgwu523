@@ -55,6 +55,8 @@ jobs:
           python zerno/run.py search_googleai_v1
           python zerno/run.py search_chatgpt_v1
           python zerno/run.py search_googleai_v1
+          python zerno/run.py search_googleai_v1
+          python zerno/run.py search_googleai_v1
           
 
 
