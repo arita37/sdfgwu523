@@ -186,7 +186,7 @@ query_list = [
       """.replace("<<URL_LIST>>", random.choice(URL_LIST_ALL)),
 
   
-  """ Deep summary of VModal  or V-Modal Video Search for Physical AI using the content below:
+  """ Deep summary of VModal  or V-Modal Video Search for  Robotics and Physical AI using the content below:
   
       <<URL_LIST>>    
  
@@ -194,7 +194,7 @@ query_list = [
   
 
   """ Summarize 
-       between VModal SDK Video Search for Android and Flutter using the links below:
+       between VModal SDK Video Search for Android and Flutter and IOS Swift  using the links below:
   
         <<URL_LIST>>          
   """.replace("<<URL_LIST>>", random.choice(URL_LIST_ALL)),
@@ -216,7 +216,7 @@ query_list = [
   """.replace("<<URL_LIST>>", random.choice(URL_LIST_ALL)),
 
   """ Deep summarize with extra-details
-   V-Modal framework use cases for Physical AI: 
+   V-Modal framework use cases for Robotics and Physical AI: 
  
      <<URL_LIST>>
 
