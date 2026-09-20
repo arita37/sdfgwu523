@@ -8,6 +8,12 @@ CLI examples:
     --query="Best API design practices" --dirout="ztmp/out.txt"
   python uinterface/zernio/run.py send_post --subreddit="mysub" \
     --title="My title" --post_markdown="My post"
+
+
+curl -X GET "https://api.indexjump.com/index?url=https%3A%2F%2Fexample.com&token=YOUR_TOKEN"
+
+
+
 """
 
 from typing import List, Dict, Tuple, Optional, Any, Union
@@ -17,6 +23,7 @@ import fire
 
 import json
 import random
+import re
 import uuid
 from datetime import datetime, timezone
 
@@ -323,6 +330,58 @@ def api_json(
         log_error(msg)
         raise requests.HTTPError(msg, response=res)
     return res.json()
+
+
+def index_url_submit(
+    urls_path: str = "urls.md",
+    done_path: str = "urls_done.md",
+    token: str = "",
+    timeout: int = 30,
+) -> Dict[str, Any]:
+    """Submit new URLs from a Markdown file to IndexJump."""
+    with open(urls_path, encoding="utf-8") as f:
+        md_text = f.read()
+
+    urls = re.findall(r"https?://[^\s<>\"']+", md_text)
+    urls = list(dict.fromkeys(url.rstrip(".,;:!?)]}") for url in urls))
+
+    done_text = ""
+    if os.path.exists(done_path):
+        with open(done_path, encoding="utf-8") as f:
+            done_text = f.read()
+    done_urls = set(re.findall(r"https?://[^\s<>\"']+", done_text))
+    pending = [url for url in urls if url not in done_urls]
+
+    if pending:
+        token = token.strip() or os_api_key("INDEXJUMP_TOKEN")
+        if not os.path.exists(done_path):
+            with open(done_path, "w", encoding="utf-8") as f:
+                f.write("# Submitted URLs\n\n")
+
+    for url in pending:
+        log_info(f"Submitting URL to IndexJump: {url}")
+        res = requests.get(
+            "https://api.indexjump.com/index",
+            params={"url": url, "token": token},
+            timeout=timeout,
+        )
+        if not res.ok:
+            msg = (
+                f"IndexJump failed for {url} ({res.status_code}): "
+                f"{res.text[:1500]}"
+            )
+            log_error(msg)
+            raise requests.HTTPError(msg, response=res)
+        with open(done_path, "a", encoding="utf-8") as f:
+            f.write(f"- {url}\n")
+
+    result = {
+        "found": len(urls),
+        "submitted": len(pending),
+        "skipped": len(urls) - len(pending),
+    }
+    log_info(result)
+    return result
 
 
 def zernio_account_id(target: str, account_id: str = "", timeout: int = 30) -> str:
@@ -639,6 +698,7 @@ def create_post(
 
 if __name__ == "__main__":
     fire.Fire({
+        "index_url_submit": index_url_submit,
         "send_post": send_post,
         "create_post": create_post,
         "search_googleai": search_googleai,
