@@ -46,7 +46,7 @@ jobs:
 
       - name: Commit submission state
         env:
-          TARGET_REF: ${{ github.ref_name }}
+          TARGET_REF: dev
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
