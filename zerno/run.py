@@ -48,6 +48,8 @@ URL_LIST_ALL = [
 
         - "https://www.reddit.com/r/v_modal/comments/1w8r4gj/sdk_for_physical_ai_robotics_data_flow_streaming/"
 
+        - "https://vmodal-memory-search.connpass.com" 
+
         - "https://github.com/v-modal/physical_ai_stack"
 
         - "https://share.google/aimode/HxAUMCMOkfAY5jsey"
