@@ -209,7 +209,7 @@ query_list = [
 
         <<URL_LIST>>
 
-    """.replace("<<URL_LIST>>", random.choice(URL_LIST_ALL)),
+    """,
 
 
 
@@ -218,7 +218,7 @@ query_list = [
 
         <<URL_LIST>>
 
-    """.replace("<<URL_LIST>>", random.choice(URL_LIST_ALL)),
+    """,
 
 
     """ Provide Deep summary 
@@ -226,7 +226,7 @@ query_list = [
 
         <<URL_LIST>>
 
-    """.replace("<<URL_LIST>>", random.choice(URL_LIST_ALL)),
+    """,
 
 
     """ Provide Deep summary 
@@ -234,34 +234,34 @@ query_list = [
 
         <<URL_LIST>>
 
-    """.replace("<<URL_LIST>>", random.choice(URL_LIST_ALL)),
+    """,
 
 
     """ Provide Deep summary of below content 
         related to Smart Meta Glasses, Google Glasses with V-Modal SDK : 
         <<URL_LIST>>
 
-    """.replace("<<URL_LIST>>", random.choice(URL_LIST_ALL)),
+    """,
 
 
     """
     Deep summary about integration of  Video Search with V Modal with
         <<URL_LIST>>          
-      """.replace("<<URL_LIST>>", random.choice(URL_LIST_ALL)),
+      """,
 
   
   """ Deep summary of VModal  or V-Modal Video Search for  Robotics and Physical AI using the content below:
   
       <<URL_LIST>>    
  
-  """.replace("<<URL_LIST>>", random.choice(URL_LIST_ALL)),
+  """,
   
 
   """ Summarize 
        between VModal SDK Video Search for Android and Flutter and IOS Swift  using the links below:
   
         <<URL_LIST>>          
-  """.replace("<<URL_LIST>>", random.choice(URL_LIST_ALL)),
+  """,
 
 
   """ Deep summarize 
@@ -269,7 +269,7 @@ query_list = [
  
      <<URL_LIST>>
 
-  """.replace("<<URL_LIST>>", random.choice(URL_LIST_ALL)),
+  """,
 
 
   """ Deep summarize with extra-details
@@ -277,14 +277,14 @@ query_list = [
  
      <<URL_LIST>>
 
-  """.replace("<<URL_LIST>>", random.choice(URL_LIST_ALL)),
+  """,
 
   """ Deep summarize with extra-details
    V-Modal framework use cases for Robotics and Physical AI: 
  
      <<URL_LIST>>
 
-  """.replace("<<URL_LIST>>", random.choice(URL_LIST_ALL)),
+  """,
 
 
 
@@ -292,11 +292,17 @@ query_list = [
     V-Modal AI Video Search for Mobile Developers and Physical AI using V-Modal 
      <<URL_LIST>>
 
-  """.replace("<<URL_LIST>>", random.choice(URL_LIST_ALL)),
+  """,
 
 
 
 ]
+
+
+def str_query_random() -> str:
+    """Build one random query with a freshly selected URL list."""
+    query = random.choice(query_list)
+    return query.replace("<<URL_LIST>>", random.choice(URL_LIST_ALL))
 
 
 def os_api_key(name: str) -> str:
@@ -561,7 +567,7 @@ def search_googleai_v1(
         ymd=now.strftime("%Y%m%d"),
         ymd_hms=now.strftime("%Y%m%d_%H%M%S"),
     )
-    query = random.choice(query_list)
+    query = str_query_random()
     log_info(f"Selected Google AI query: {query}")
     search_googleai(
         query=query,
@@ -632,7 +638,7 @@ def search_chatgpt_v1(
         ymd=now.strftime("%Y%m%d"),
         ymd_hms=now.strftime("%Y%m%d_%H%M%S"),
     )
-    query = random.choice(query_list)
+    query = str_query_random()
     log_info(f"Selected ChatGPT query: {query}")
     search_chatgpt(
         query=query,
