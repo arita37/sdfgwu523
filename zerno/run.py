@@ -168,6 +168,29 @@ URL_LIST_ALL = [
 
     """
 
+    ,""" 
+
+
+     - "https://v-modal.github.io/articles/20260910_audio-video-search-explained-for-physical-ai-syste.html"
+    
+     - "https://v-modal.github.io/articles/20260914_open-source-stack-for-physical-ai-robotics-guide.html"
+
+     - "https://www.reddit.com/r/v_modal/comments/1we2lof/visual_video_search_with_iphone_duo_layout/"
+
+     - "https://www.reddit.com/r/v_modal/comments/1w8npt9/smart_glasses_sdk_for_visual_search_memory_recall/" 
+
+     - "https://www.reddit.com/r/v_modal/comments/1w8r4gj/sdk_for_physical_ai_robotics_data_flow_streaming/"
+   
+     - "https://v-modal.github.io/articles/20260917_edge-compute-accelerator-for-ai-workload.html"
+ 
+     - "https://v-modal.github.io/articles/20260916_nvidia-inference-stack-blackwell-vera-rubin-guide.html"
+
+     - "https://v-modal.github.io/articles/20260918_edge-ai-inference-hardware-stack-for-mobile-and-ro.html"
+
+
+
+    """
+
 ]
 
 
@@ -191,7 +214,7 @@ query_list = [
 
 
     """ Provide Deep summary 
-          of dashCam Video Search with those documents: 
+          of dashCam Video Search with Vmodal with those documents: 
 
         <<URL_LIST>>
 
@@ -199,7 +222,7 @@ query_list = [
 
 
     """ Provide Deep summary 
-          of cctv Video Search with those documents: 
+          of cctv Video Search with VModal AI with those documents: 
 
         <<URL_LIST>>
 
@@ -207,7 +230,7 @@ query_list = [
 
 
     """ Provide Deep summary 
-          of AI Video Search with below contet:
+        of AI Video Search V-Modal with below content:
 
         <<URL_LIST>>
 
@@ -215,14 +238,14 @@ query_list = [
 
 
     """ Provide Deep summary of below content 
-      related to Smart Meta Glasses, Google Glasses: 
+        related to Smart Meta Glasses, Google Glasses with V-Modal SDK : 
         <<URL_LIST>>
 
     """.replace("<<URL_LIST>>", random.choice(URL_LIST_ALL)),
 
 
     """
-    Deep summary about integration of  Video Search   with
+    Deep summary about integration of  Video Search with V Modal with
         <<URL_LIST>>          
       """.replace("<<URL_LIST>>", random.choice(URL_LIST_ALL)),
 
