@@ -47,6 +47,10 @@ URL_LIST_ALL = [
 
     """
         ```
+        - "https://www.reddit.com/r/v_modal/comments/1wm5y34/comment/pb4d4t2/?screen_view_count=3&ext-referrer=DIRECT"
+
+        - "https://www.reddit.com/r/v_modal/comments/1wm4rbs/news_google_to_release_first_smart_glasses_in/"
+
         - "https://github.com/v-modal/vmodal_sdk_robotics" 
         
         - "https://github.com/v-modal/vmodal_sdk_swift_iphoneduo"
