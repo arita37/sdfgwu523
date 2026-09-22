@@ -160,6 +160,7 @@ def check(count: int = 5, rank_path: str = str(BASE / "ranking/rank.tsv"),
             continue
         rows = [[stamp, rank, query, url] for rank, url in (matches or [(0, "")])]
         os_append_rank(rank_path, rows)
+        log_info("Appended %s ranking row(s) to %s", len(rows), rank_path)
         total += len(rows)
     if failed:
         raise RuntimeError(f"{failed}/{count} checks failed; {total} valid ranking rows saved")
