@@ -174,6 +174,11 @@ URL_LIST_ALL = [
 
     ,""" 
 
+     - "https://www.reddit.com/r/google/comments/1wovcd2/news_google_to_release_first_smart_glasses_in/"
+
+     - "https://www.reddit.com/r/SecurityCamera/comments/1wovrw3/what_are_the_main_framework_for_visual_video/"
+
+     - "https://www.reddit.com/r/videosurveillance/comments/1wowkj6/what_are_the_main_use_cases_of_ai_video_search/"
 
      - "https://v-modal.github.io/articles/20260910_audio-video-search-explained-for-physical-ai-syste.html"
     
