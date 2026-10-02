@@ -1,7 +1,7 @@
 """Check unbranded Google AI citation positions; rank 0 means no match.
 
 Rank is the order of distinct cited sources, not Google's organic SERP rank.
-Pending snapshots are retrieved before ranking; error responses fail after all attempts.
+Pending snapshots are retrieved before ranking; failed queries are skipped.
 Run from any directory: python /path/to/zerno/check.py
 """
 
@@ -226,37 +226,39 @@ def check(count: int = 5, rank_path: str = str(BASE / "ranking/rank.tsv"),
                 saved = os_load_json(str(path))
                 data = os_snapshot_data(saved["response"], api_key=api_key,
                                         timeout=timeout)
-                if data is not saved["response"]:
-                    saved["response"] = data
-                    os_save_json(str(path), saved)
                 log_info("Processing saved response %s/%s: %s", i, count, path)
                 matches = citation_ranks(data, known)
-                rows = [[stamp, rank, query, url]
-                        for rank, url in (matches or [(0, "")])]
-                os_append_rank(rank_path, rows)
-                log_info("Appended %s ranking row(s) to %s", len(rows), rank_path)
-                total += len(rows)
-                if not matches:
-                    try:
-                        prompt = str_retry_prompt(data)
-                        data_v2 = search_googleai(prompt, hl=hl, country=country,
-                                                  timeout=timeout)
-                        path_v2 = Path(raw_dir) / run_id / f"{i}_v2.json"
-                        os_save_json(str(path_v2), {"date": stamp, "response": data_v2})
-                        matches_v2 = citation_ranks(data_v2, known)
-                        rows_v2 = [[stamp, rank, url]
-                                   for rank, url in (matches_v2 or [(0, "")])]
-                        os_append_rank_v2(rank_v2_path, rows_v2)
-                        log_info("Appended %s retry ranking row(s) to %s",
-                                 len(rows_v2), rank_v2_path)
-                    except (OSError, requests.RequestException, ValueError, RuntimeError) as exc:
-                        log_warning("Retry failed for %s: %s", query, exc)
-            except (OSError, requests.RequestException, ValueError, RuntimeError) as exc:
+            except (requests.RequestException, ValueError, RuntimeError) as exc:
                 failed += 1
-                log_error("Query failed: %s: %s", query, exc)
+                log_warning("Skipping failed query: %s: %s", query, exc)
                 continue
+            if data is not saved["response"]:
+                saved["response"] = data
+                os_save_json(str(path), saved)
+            rows = [[stamp, rank, query, url]
+                    for rank, url in (matches or [(0, "")])]
+            os_append_rank(rank_path, rows)
+            log_info("Appended %s ranking row(s) to %s", len(rows), rank_path)
+            total += len(rows)
+            if not matches:
+                try:
+                    prompt = str_retry_prompt(data)
+                    data_v2 = search_googleai(prompt, hl=hl, country=country,
+                                              timeout=timeout)
+                    matches_v2 = citation_ranks(data_v2, known)
+                except (requests.RequestException, ValueError, RuntimeError) as exc:
+                    log_warning("Retry failed for %s: %s", query, exc)
+                    continue
+                path_v2 = Path(raw_dir) / run_id / f"{i}_v2.json"
+                os_save_json(str(path_v2), {"date": stamp, "response": data_v2})
+                rows_v2 = [[stamp, rank, url]
+                           for rank, url in (matches_v2 or [(0, "")])]
+                os_append_rank_v2(rank_v2_path, rows_v2)
+                log_info("Appended %s retry ranking row(s) to %s",
+                         len(rows_v2), rank_v2_path)
     if failed:
-        raise RuntimeError(f"{failed}/{count} checks failed; {total} valid ranking rows saved")
+        log_warning("Skipped %s/%s failed queries; %s valid ranking rows saved",
+                    failed, count, total)
     return {"queries": count, "rows": total}
 
 

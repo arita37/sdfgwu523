@@ -179,6 +179,23 @@ def test9():
     assert rows[1][1] == "0"
     assert rows[1][3] == ""
     assert not os.path.exists(path_v2)
+    path = f"{dirtest}/skipped.tsv"
+    raw = f"{dirtest}/raw_skipped"
+    os_cleanup(path)
+    os_cleanup(raw)
+    with patch("zerno.check.os_bright_data_api_key", return_value="fake"), \
+         patch("zerno.check.search_googleai",
+               return_value={"error": "Browser disconnected", "error_code": "cdp_disconnect"}):
+        result = check(count=1, rank_path=path, raw_dir=raw, wait_seconds=0)
+    assert result == {"queries": 1, "rows": 0}
+    assert not os.path.exists(path)
+    with patch("zerno.check.os_bright_data_api_key", return_value="fake"), \
+         patch("zerno.check.search_googleai",
+               side_effect=[{"error": "Browser disconnected"}, fake_answer()]):
+        result = check(count=2, rank_path=path, raw_dir=raw, wait_seconds=0)
+    assert result == {"queries": 2, "rows": 2}
+    with open(path, newline="", encoding="utf-8") as f:
+        assert len(list(csv.DictReader(f, delimiter="\t"))) == 2
 
 
 def test_all():
