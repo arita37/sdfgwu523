@@ -78,6 +78,10 @@ def os_save_json(path: str, data: Any) -> None:
                    encoding="utf-8")
 
 
+def os_load_json(path: str) -> Any:
+    return json.loads(Path(path).read_text(encoding="utf-8"))
+
+
 def os_makedirs(path: str) -> None:
     Path(path).mkdir(parents=True, exist_ok=True)
 

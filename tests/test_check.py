@@ -18,7 +18,9 @@ from zerno.utils import (os_append_rank, os_append_rank_v2, os_path_cleanup as o
 from utils_datafake import fake_answer, fake_answer_no_vmodal
 
 import csv
+import inspect
 import subprocess
+import threading
 from unittest.mock import patch, Mock
 
 
@@ -73,16 +75,17 @@ def test3():
 
 def test4():
     path = f"{dirtest}/batch.tsv"
+    raw = f"{dirtest}/raw_batch"
     os_cleanup(path)
+    os_cleanup(raw)
     with patch("zerno.check.os_bright_data_api_key", return_value="fake"), \
-         patch("zerno.check.search_googleai", return_value=fake_answer()) as req, \
-         patch("zerno.check.os_save_json"):
-        result = check(rank_path=path)
+         patch("zerno.check.search_googleai", return_value=fake_answer()) as req:
+        result = check(rank_path=path, raw_dir=raw, wait_seconds=0)
         assert result == {"queries": 5, "rows": 10}
         queries = [call.args[0] for call in req.call_args_list]
         assert len(set(queries)) == 5
         assert all(q in QUERIES and "modal" not in q and "http" not in q for q in queries)
-        check(count=1, rank_path=path)
+        check(count=1, rank_path=path, raw_dir=raw, wait_seconds=0)
     with open(path, newline="", encoding="utf-8") as f:
         assert len(list(csv.reader(f, delimiter="\t"))) == 13
 
@@ -102,15 +105,17 @@ def test5():
 
 def test6():
     path = f"{dirtest}/partial.tsv"
+    raw = f"{dirtest}/raw_partial"
     os_cleanup(path)
+    os_cleanup(raw)
     code = '''
 from unittest.mock import patch
 from zerno.check import check
 ok = [{"answer_text": "No matching tools", "citations": []}]
 with patch("zerno.check.os_bright_data_api_key", return_value="fake"), \\
-     patch("zerno.check.os_save_json"), \\
      patch("zerno.check.search_googleai", side_effect=[{"snapshot_id":"pending"}, ok, ok, ok, ok, ok, ok, ok, ok]):
-    check(rank_path="ztmp/ztests/partial.tsv", rank_v2_path="ztmp/ztests/partial_v2.tsv")
+    check(rank_path="ztmp/ztests/partial.tsv", rank_v2_path="ztmp/ztests/partial_v2.tsv",
+          raw_dir="ztmp/ztests/raw_partial", wait_seconds=0)
 '''
     proc = subprocess.run([sys.executable, "-c", code], capture_output=True, text=True)
     assert proc.returncode != 0
@@ -124,13 +129,15 @@ with patch("zerno.check.os_bright_data_api_key", return_value="fake"), \\
 def test7():
     path = f"{dirtest}/retry.tsv"
     path_v2 = f"{dirtest}/retry_v2.tsv"
+    raw = f"{dirtest}/raw_retry"
     os_cleanup(path)
     os_cleanup(path_v2)
+    os_cleanup(raw)
     with patch("zerno.check.os_bright_data_api_key", return_value="fake"), \
-         patch("zerno.check.os_save_json"), \
          patch("zerno.check.search_googleai",
                side_effect=[fake_answer_no_vmodal(), fake_answer()]) as req:
-        result = check(count=1, rank_path=path, rank_v2_path=path_v2)
+        result = check(count=1, rank_path=path, rank_v2_path=path_v2,
+                       raw_dir=raw, wait_seconds=0)
     assert result == {"queries": 1, "rows": 1}
     assert req.call_count == 2
     prompt = req.call_args_list[1].args[0]
@@ -146,6 +153,27 @@ def test7():
     assert rows[2][1:] == ["3", "https://www.v-modal.com/"]
 
 
+def test8():
+    path = f"{dirtest}/pool.tsv"
+    raw = f"{dirtest}/raw_pool"
+    os_cleanup(path)
+    os_cleanup(raw)
+    assert inspect.signature(check).parameters["wait_seconds"].default == 240
+    gate = threading.Barrier(5)
+    names = set()
+
+    def fake_search(query, hl="en", country="", timeout=180):
+        names.add(threading.current_thread().name)
+        gate.wait(timeout=2)
+        return fake_answer()
+
+    with patch("zerno.check.os_bright_data_api_key", return_value="fake"), \
+         patch("zerno.check.search_googleai", side_effect=fake_search):
+        result = check(rank_path=path, raw_dir=raw, wait_seconds=0)
+    assert result == {"queries": 5, "rows": 10}
+    assert len(names) == 5
+
+
 def test_all():
     os_makedirs(dirtest)
     test1()
@@ -155,7 +183,8 @@ def test_all():
     test5()
     test6()
     test7()
-    log_info("All seven citation checker tests passed")
+    test8()
+    log_info("All eight citation checker tests passed")
 
 
 if __name__ == "__main__":

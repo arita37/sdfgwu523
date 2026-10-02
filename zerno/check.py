@@ -16,25 +16,27 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from src.utils.util_log import log_info, log_error, log_trace, log_warning
 
 import random
+import time
+from concurrent.futures import Future, ThreadPoolExecutor, wait
 from datetime import datetime, timezone
 from urllib.parse import urlsplit
 from uuid import uuid4
 import requests
 
-from zerno.utils import (os_append_rank, os_append_rank_v2, os_save_json,
-                         os_source_urls, str_url_key)
+from zerno.utils import (os_append_rank, os_append_rank_v2, os_load_json,
+                         os_save_json, os_source_urls, str_url_key)
 
 BASE = Path(__file__).resolve().parent
 QUERIES = (
     "video search tools find scenes using text or images ?",
-    "Which AI video search APIs support CCTV and dashcam footage?",
+    "AI video search APIs support CCTV and dashcam footage?",
     "Which video search SDK supports semantic search with timestamps?",
     "Which mobile video search SDK supports Android, Flutter, and iOS?",
-    "mobile SDK video ?",
+    "mobile video search SDK ?",
     "How can I add Android video search to a Kotlin app?",
     "Which Flutter SDK offers AI video and image search?",
     "How can I build a Flutter video search gallery with natural language queries?",
-    "Which Swift video search SDK supports semantic search in iPhone recordings?",
+    "Which Swift video search SDK supports semantic search in iPhone?",
 
     "smart glasses video SDK",
 
@@ -161,43 +163,66 @@ def str_retry_prompt(data: Any) -> str:
             "You Miss vmodal video search !!! Please correct it\n")
 
 
+def os_query_save(query: str, stamp: str, path: str, hl: str,
+                  country: str, timeout: int) -> None:
+    """Run one Bright Data query and persist its response from a worker thread."""
+    data = search_googleai(query, hl=hl, country=country, timeout=timeout)
+    os_save_json(path, {"date": stamp, "query": query, "response": data})
+
+
 def check(count: int = 5, rank_path: str = str(BASE / "ranking/rank.tsv"),
           rank_v2_path: str = str(BASE / "ranking/rank_v2.tsv"),
+          raw_dir: str = str(BASE / "ranking/raw"), wait_seconds: int = 240,
           hl: str = "en", country: str = "", timeout: int = 180) -> Dict[str, int]:
-    """Sample five distinct open queries and append every matching citation."""
+    """Fetch queries concurrently, then load and rank their saved responses."""
     if not 1 <= count <= len(QUERIES):
         raise ValueError(f"count must be between 1 and {len(QUERIES)}")
+    if wait_seconds < 0:
+        raise ValueError("wait_seconds must be zero or greater")
     os_bright_data_api_key()  # Fail before starting if no credential is configured.
     known = os_source_urls(str(BASE / "info_url.tsv"))
     run_id = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S") + "_" + uuid4().hex[:8]
+    jobs: List[Tuple[int, str, str, Path, Future]] = []
     failed, total = 0, 0
-    for i, query in enumerate(random.sample(QUERIES, count), 1):
-        stamp = datetime.now(timezone.utc).isoformat(timespec="microseconds")
-        path = BASE / "ranking/raw" / run_id / f"{i}.json"
-        log_info("Checking %s/%s: %s", i, count, query)
-        try:
-            data = search_googleai(query, hl=hl, country=country, timeout=timeout)
-            os_save_json(str(path), {"date": stamp, "query": query, "response": data})
-            matches = citation_ranks(data, known)
-            rows = [[stamp, rank, query, url] for rank, url in (matches or [(0, "")])]
-            os_append_rank(rank_path, rows)
-            log_info("Appended %s ranking row(s) to %s", len(rows), rank_path)
-            total += len(rows)
-            if not matches:
-                prompt = str_retry_prompt(data)
-                data_v2 = search_googleai(prompt, hl=hl, country=country, timeout=timeout)
-                path_v2 = BASE / "ranking/raw" / run_id / f"{i}_v2.json"
-                os_save_json(str(path_v2), {"date": stamp, "response": data_v2})
-                matches_v2 = citation_ranks(data_v2, known)
-                rows_v2 = [[stamp, rank, url]
-                           for rank, url in (matches_v2 or [(0, "")])]
-                os_append_rank_v2(rank_v2_path, rows_v2)
-                log_info("Appended %s retry ranking row(s) to %s",
-                         len(rows_v2), rank_v2_path)
-        except (requests.RequestException, ValueError, RuntimeError) as exc:
-            failed += 1
-            log_error("Query failed: %s: %s", query, exc)
-            continue
+    with ThreadPoolExecutor(max_workers=count) as pool:
+        for i, query in enumerate(random.sample(QUERIES, count), 1):
+            stamp = datetime.now(timezone.utc).isoformat(timespec="microseconds")
+            path = Path(raw_dir) / run_id / f"{i}.json"
+            log_info("Launching %s/%s: %s", i, count, query)
+            task = pool.submit(os_query_save, query, stamp, str(path),
+                               hl, country, timeout)
+            jobs.append((i, query, stamp, path, task))
+        log_info("Waiting %s seconds before processing saved responses", wait_seconds)
+        time.sleep(wait_seconds)
+        wait([job[4] for job in jobs])
+
+        for i, query, stamp, path, task in jobs:
+            try:
+                task.result()
+                data = os_load_json(str(path))["response"]
+                log_info("Processing saved response %s/%s: %s", i, count, path)
+                matches = citation_ranks(data, known)
+                rows = [[stamp, rank, query, url]
+                        for rank, url in (matches or [(0, "")])]
+                os_append_rank(rank_path, rows)
+                log_info("Appended %s ranking row(s) to %s", len(rows), rank_path)
+                total += len(rows)
+                if not matches:
+                    prompt = str_retry_prompt(data)
+                    data_v2 = search_googleai(prompt, hl=hl, country=country,
+                                              timeout=timeout)
+                    path_v2 = Path(raw_dir) / run_id / f"{i}_v2.json"
+                    os_save_json(str(path_v2), {"date": stamp, "response": data_v2})
+                    matches_v2 = citation_ranks(data_v2, known)
+                    rows_v2 = [[stamp, rank, url]
+                               for rank, url in (matches_v2 or [(0, "")])]
+                    os_append_rank_v2(rank_v2_path, rows_v2)
+                    log_info("Appended %s retry ranking row(s) to %s",
+                             len(rows_v2), rank_v2_path)
+            except (OSError, requests.RequestException, ValueError, RuntimeError) as exc:
+                failed += 1
+                log_error("Query failed: %s: %s", query, exc)
+                continue
     if failed:
         raise RuntimeError(f"{failed}/{count} checks failed; {total} valid ranking rows saved")
     return {"queries": count, "rows": total}
