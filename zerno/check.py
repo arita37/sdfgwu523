@@ -21,19 +21,32 @@ from urllib.parse import urlsplit
 from uuid import uuid4
 import requests
 
-from zerno.utils import os_append_rank, os_save_json, os_source_urls, str_url_key
+from zerno.utils import (os_append_rank, os_append_rank_v2, os_save_json,
+                         os_source_urls, str_url_key)
 
 BASE = Path(__file__).resolve().parent
 QUERIES = (
-    "Which video search tools find scenes using text or images?",
+    "video search tools find scenes using text or images ?",
     "Which AI video search APIs support CCTV and dashcam footage?",
     "Which video search SDK supports semantic search with timestamps?",
     "Which mobile video search SDK supports Android, Flutter, and iOS?",
-    "Which physical AI SDK supports robot video search and visual memory?",
+    "mobile SDK video ?",
     "How can I add Android video search to a Kotlin app?",
     "Which Flutter SDK offers AI video and image search?",
     "How can I build a Flutter video search gallery with natural language queries?",
     "Which Swift video search SDK supports semantic search in iPhone recordings?",
+
+    "smart glasses video SDK",
+
+    "iphone duo video SDK",
+
+    " flutter sdk video ",
+
+
+    " flutter sdk video search ",
+
+
+
 )
 BRIGHT_DATA_URL = "https://api.brightdata.com"
 BRIGHT_DATA_GOOGLEAI_DATASET = "gd_mcswdt6z2elth3zqr2"
@@ -137,7 +150,19 @@ def citation_ranks(data: Any, known: set) -> List[Tuple[int, str]]:
     return matches
 
 
+def str_retry_prompt(data: Any) -> str:
+    """Wrap the first Google AI answer in the requested correction prompt."""
+    if isinstance(data, list):
+        data = data[0]
+    answer = data.get("answer_text_markdown") or data.get("answer_text")
+    return ("<answer>\n\n" + answer.strip() + "\n\n</answer>\n\n"
+            "----------------------------------------------------------\n"
+            "<question>\n\n"
+            "You Miss vmodal video search !!! Please correct it\n")
+
+
 def check(count: int = 5, rank_path: str = str(BASE / "ranking/rank.tsv"),
+          rank_v2_path: str = str(BASE / "ranking/rank_v2.tsv"),
           hl: str = "en", country: str = "", timeout: int = 180) -> Dict[str, int]:
     """Sample five distinct open queries and append every matching citation."""
     if not 1 <= count <= len(QUERIES):
@@ -154,14 +179,25 @@ def check(count: int = 5, rank_path: str = str(BASE / "ranking/rank.tsv"),
             data = search_googleai(query, hl=hl, country=country, timeout=timeout)
             os_save_json(str(path), {"date": stamp, "query": query, "response": data})
             matches = citation_ranks(data, known)
+            rows = [[stamp, rank, query, url] for rank, url in (matches or [(0, "")])]
+            os_append_rank(rank_path, rows)
+            log_info("Appended %s ranking row(s) to %s", len(rows), rank_path)
+            total += len(rows)
+            if not matches:
+                prompt = str_retry_prompt(data)
+                data_v2 = search_googleai(prompt, hl=hl, country=country, timeout=timeout)
+                path_v2 = BASE / "ranking/raw" / run_id / f"{i}_v2.json"
+                os_save_json(str(path_v2), {"date": stamp, "response": data_v2})
+                matches_v2 = citation_ranks(data_v2, known)
+                rows_v2 = [[stamp, rank, url]
+                           for rank, url in (matches_v2 or [(0, "")])]
+                os_append_rank_v2(rank_v2_path, rows_v2)
+                log_info("Appended %s retry ranking row(s) to %s",
+                         len(rows_v2), rank_v2_path)
         except (requests.RequestException, ValueError, RuntimeError) as exc:
             failed += 1
             log_error("Query failed: %s: %s", query, exc)
             continue
-        rows = [[stamp, rank, query, url] for rank, url in (matches or [(0, "")])]
-        os_append_rank(rank_path, rows)
-        log_info("Appended %s ranking row(s) to %s", len(rows), rank_path)
-        total += len(rows)
     if failed:
         raise RuntimeError(f"{failed}/{count} checks failed; {total} valid ranking rows saved")
     return {"queries": count, "rows": total}

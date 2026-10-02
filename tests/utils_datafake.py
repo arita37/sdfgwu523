@@ -15,3 +15,9 @@ def fake_answer() -> List[Dict[str, Any]]:
         {"url": "https://github.com/v-modal/vmodal_sdk_flutter", "cited": True},
         {"url": "https://www.v-modal.com/", "cited": True},
     ]}]
+
+
+def fake_answer_no_vmodal() -> List[Dict[str, Any]]:
+    return [{"answer_text": "Plain answer.",
+             "answer_text_markdown": "Some **video search** tools.",
+             "citations": [{"url": "https://example.com/tool", "cited": True}]}]

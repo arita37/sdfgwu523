@@ -54,6 +54,23 @@ def os_append_rank(path: str, rows: List[List[Any]]) -> None:
         writer.writerows(rows)
 
 
+def os_append_rank_v2(path: str, rows: List[List[Any]]) -> None:
+    """Append retry rankings without storing the long correction prompt."""
+    dst = Path(path)
+    dst.parent.mkdir(parents=True, exist_ok=True)
+    fields = ["date", "rank", "vmodal_url"]
+    exists = dst.exists() and dst.stat().st_size > 0
+    if exists:
+        with dst.open(encoding="utf-8", newline="") as f:
+            if next(csv.reader(f, delimiter="\t"), []) != fields:
+                raise ValueError(f"Unexpected TSV header: {path}")
+    with dst.open("a", encoding="utf-8", newline="") as f:
+        writer = csv.writer(f, delimiter="\t", lineterminator="\n")
+        if not exists:
+            writer.writerow(fields)
+        writer.writerows(rows)
+
+
 def os_save_json(path: str, data: Any) -> None:
     dst = Path(path)
     dst.parent.mkdir(parents=True, exist_ok=True)
