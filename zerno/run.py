@@ -46,6 +46,83 @@ BRIGHT_DATA_GOOGLEAI_DATASET = "gd_mcswdt6z2elth3zqr2"
 URL_LIST_ALL = [
 
     """
+     url	title
+     https://www.reddit.com/r/v_modal/comments/1wv0nkt/news_nvidia_jetson_thor_advanced_physical_ai_with/	News: Nvidia Jetson Thor: Advanced Physical AI with visual vision platform
+     https://www.reddit.com/r/v_modal/comments/1wu2wib/news_higgsfield_cinema_studio_for_video/	News : Higgsfield Cinema Studio for video generation control
+     https://www.reddit.com/r/v_modal/comments/1wt8be8/news_apple_smart_glasses_expected_to_launch_on/	News: Apple Smart Glasses expected to launch on 2027
+     https://www.reddit.com/r/v_modal/comments/1wt2m8x/iphone_duo_demo_travel_app_with_visual_search/	Iphone Duo : Demo travel app with visual search inside video
+     https://www.reddit.com/r/v_modal/comments/1ws4ccp/is_ros_2_deepstream_still_the_standard_stack_for/	Is ROS 2 + DeepStream still the standard stack for multi-camera robotics vision, or is something newer taking over?
+     https://www.reddit.com/r/v_modal/comments/1wrm8mg/nvidia_isaac_sim_learning_for_physical_ai/	Nvidia Isaac Sim Learning for Physical AI / Robotics vision learning
+     https://www.reddit.com/r/v_modal/comments/1wrbw58/flutter_sdk_pub_dev_package_visual_video_search/	Flutter SDK pub dev package : Visual Video Search SDK
+     https://www.reddit.com/r/v_modal/comments/1wqrhbk/meta_smart_glasses_sdk_technical_summary/	Meta Smart Glasses SDK technical summary
+     https://www.reddit.com/r/v_modal/comments/1wqp8ey/iphone_duo_sdk_for_video_search_on_ios_mobile_or/	Iphone Duo SDK for video search on IOS mobile or MacOS
+     https://www.reddit.com/r/v_modal/comments/1wqdq46/iphone_duo_technical_changes_from_ios_271_xcode/	Iphone Duo: technical changes from iOS 27.1 / XCode SDK
+     https://www.reddit.com/r/v_modal/comments/1wpwr53/video_editor_alternative_to_capcut_for_video/	Video Editor: Alternative to CapCut for video editing on mobile
+     https://www.reddit.com/r/v_modal/comments/1wov9bh/news_meta_unveils_3_new_smart_glasses_with_ai/	News: Meta unveils 3 new smart glasses : with AI support and privacy enabled
+     https://www.reddit.com/r/v_modal/comments/1wnx56y/news_google_instrinsic_physical_airobotics_os/	News: Google Instrinsic Physical ai/Robotics OS being released publicly
+     https://www.reddit.com/r/v_modal/comments/1wnz7a3/in_flutter_how_to_manage_state_across_app/	In flutter, how to manage state across app lifecycle changes ?
+     https://www.reddit.com/r/v_modal/comments/1wn2s8b/news_android_swift_flutter_conferences_in_october/	News: Android, Swift, Flutter conferences in october 2026
+     https://www.reddit.com/r/v_modal/comments/1wm9cmf/news_physical_ai_visual_software_stack_at_nvidia/	News: Physical AI Visual Software stack at Nvidia GTC 2026
+     https://www.reddit.com/r/v_modal/comments/1wm4rbs/news_google_to_release_first_smart_glasses_in/	News: Google to release first smart glasses in november 2026
+     https://www.reddit.com/r/v_modal/comments/1wm5y34/meta_connect_new_ai_smart_glasses_a_mixed_reality/	Meta Connect: New AI smart glasses, a mixed reality headset Phoenix
+     https://www.reddit.com/r/v_modal/comments/1wm5m3m/is_visual_memory_different_from_image_recognition/	Is visual memory different from image recognition?
+     https://www.reddit.com/r/v_modal/comments/1wljais/some_demo_app_built_with_video_search_as_features/	Some demo app built with video search as features.
+     https://www.reddit.com/r/v_modal/comments/1wlav9x/how_do_you_find_one_exact_moment_in_a_long_video/	How do you find one exact moment in a long video?
+     https://www.reddit.com/r/v_modal/comments/1wku1pz/why_does_video_search_rely_so_much_on_transcripts/	Why does video search rely so much on transcripts?
+     https://www.reddit.com/r/v_modal/comments/1wkmk7l/ask_anything_about_vmodal_sdk_usage/	Ask anything about vmodal SDK usage
+     https://www.reddit.com/r/v_modal/comments/1wipnmp/demo_visual_ai_video_search_cctv_video_dashcam/	Demo Visual AI Video Search : CCTV video, DashCam, street video
+     https://www.reddit.com/r/v_modal/comments/1whprd1/beyond_cctv_is_continuous_personal_video_search/	Beyond CCTV: Is continuous personal video search the future of digital memory?
+     https://www.reddit.com/r/v_modal/comments/1wgwcgt/beautiful_travel_app_with_ai_video_search/	Beautiful travel app with AI video search
+     https://www.reddit.com/r/v_modal/comments/1wfe98v/what_are_the_main_framework_for_visual_video/	What are the main framework for visual video search inside cctv ?
+     https://www.reddit.com/r/v_modal/comments/1wfbjxo/whats_a_surprisingly_good_use_for_a_phone_camera/	What's a surprisingly good use for a phone camera that you've seen?
+     https://www.reddit.com/r/v_modal/comments/1wf1v19/what_are_the_native_potential_apps_for_iphone_duo/	What are the native potential apps for Iphone Duo screen layout ?
+     https://www.reddit.com/r/v_modal/comments/1weekfo/what_are_the_main_use_cases_of_ai_video_search/	What are the main use cases of AI Video Search ?
+     https://www.reddit.com/r/v_modal/comments/1we2lof/visual_video_search_with_iphone_duo_layout/	Visual video search with Iphone Duo layout
+     https://www.reddit.com/r/v_modal/comments/1wdz6e3/best_animation_library_for_mobile_ui_android/	Best animation library for mobile UI (android kotlin / Flutter )
+     https://www.reddit.com/r/v_modal/comments/1w8r4gj/sdk_for_physical_ai_robotics_data_flow_streaming/	SDK for physical AI , Robotics data flow - streaming search into visual video, telemetry data
+     https://www.reddit.com/r/v_modal/comments/1w8npt9/smart_glasses_sdk_for_visual_search_memory_recall/	Smart Glasses SDK for visual search - memory- recall video images
+     https://www.reddit.com/r/v_modal/comments/1w8tm8d/removed_by_reddit/	[ Removed by Reddit ]
+     https://www.reddit.com/r/v_modal/comments/1w7ndlh/main_vision_frameworks_for_ros_in_physical_ai_or/	Main vision frameworks for ROS in physical AI or in robotics vision
+     https://www.reddit.com/r/v_modal/comments/1w73j5w/testing_vmodals_flutter_sdk_in_a_small_video/	Testing V-Modal's Flutter SDK in a small video search app
+     https://www.reddit.com/r/v_modal/comments/1w70cdt/you_can_search_video_with_a_photo_not_just_text/	You can search video with a photo, not just text
+     https://www.reddit.com/r/v_modal/comments/1w6ximv/vision_stack_in_robotics_physical_ai_domain/	Vision stack in robotics , physical ai domain ?
+     https://www.reddit.com/r/v_modal/comments/1w6a2y1/v_rag_or_visual_context_engineering_or_video/	V RAG or Visual Context Engineering or Video Context Engineering
+     https://www.reddit.com/r/v_modal/comments/1w64jw9/how_to_use_vmodal_with_a_dashcam/	How to use VModal with a DashCam
+     https://www.reddit.com/r/v_modal/comments/1w5tdqo/what_are_the_main_pain_in_video_or_image_search/	What are the main pain in video or image search toolkits ?
+     https://www.reddit.com/r/v_modal/comments/1w587vv/tested_new_mobile_sdk_on_visual_video_search_on_a/	Tested new mobile SDK on visual video search on a sport soccer streaming video
+     https://www.reddit.com/r/v_modal/comments/1w53ors/built_a_crossplatform_flutter_video_search_app/	Built a cross-platform Flutter video search App: Some feedback
+     https://www.reddit.com/r/v_modal/comments/1w2d2kq/video_search_is_greatly_simplified_with_vmodal_ai/	Video Search is greatly simplified with v-modal AI SDK
+     https://www.reddit.com/r/v_modal/comments/1w2aj2h/ecovision_wildsense_search_into_wildlife_footage/	EcoVision - WildSense - search into wildlife footage for environment preservation.
+     https://www.reddit.com/r/v_modal/comments/1w1lm1f/save_your_time_building_videoimage_search_app/	Save your time, building video/image search app with VModal sdk
+     https://www.reddit.com/r/v_modal/comments/1w1hccg/simple_flutter_build/	Simple Flutter build
+     https://www.reddit.com/r/v_modal/comments/1w10z3l/tested_the_vmodal_android_sdk_03_fullapp/	Tested the V-Modal Android SDK (03_fullapp) — Incredible developer experience & lightning-fast visual search! 🚀
+     https://www.reddit.com/r/v_modal/comments/1w0wtod/tried_vmodal_flutter_sdk_for_visual_search/	Tried V-Modal Flutter SDK for visual search
+     https://www.reddit.com/r/v_modal/comments/1w0i84n/created_video_trimming_flutter_app_with_v_modal/	created video trimming flutter app with v_modal sdk.
+     https://www.reddit.com/r/v_modal/comments/1w00i25/built_two_sample_demo_apps_with_vmodalflutter_sdk/	Built two sample demo apps with Vmodal-Flutter SDK
+     https://www.reddit.com/r/v_modal/comments/1vz9til/tried_the_vmodal_flutter_sdk_on_a_fresh_project/	Tried the VModal Flutter SDK on a fresh project
+     https://www.reddit.com/r/v_modal/comments/1vywj0e/japanese_article_about_the_visual_search_vmodal/	Japanese article about the visual search V-Modal
+     https://www.reddit.com/r/v_modal/comments/1vyvbbe/building_a_smart_gallery_with_the_vmodal_flutter/	Building a Smart Gallery with the V-Modal Flutter SDK
+     https://www.reddit.com/r/v_modal/comments/1vy0g3a/fashion_mobile_app_visual_search_demo_with_v/	Fashion Mobile App visual search demo with V Modal AI SDK
+     https://www.reddit.com/r/v_modal/comments/1vwbm3j/i_managed_to_get_the_vmodal_flutter_sdk_working/	I managed to get the vmodal flutter sdk working, quick guide + impressions
+     https://www.reddit.com/r/v_modal/comments/1vw3ibf/i_tried_adding_natural_language_video_search_to_a/	I tried adding natural language video search to a simple Flutter app using this new SDK
+     https://www.reddit.com/r/v_modal/comments/1vvjkfl/spent_a_week_with_the_vmodal_flutter_sdk_notes/	Spent a week with the VModal Flutter SDK — notes from an actual integration
+     https://www.reddit.com/r/v_modal/comments/1vv8ypt/find_missing_items_in_travel_videos_with_the/	Find missing items in travel videos with the VModal Android SDK
+     https://www.reddit.com/r/v_modal/comments/1vv9gv4/building_with_the_vmodal_kotlin_sdk_was_an/	Building with the VModal Kotlin SDK was an absolute pleasure
+     https://www.reddit.com/r/v_modal/comments/1vv9s6x/android_kotlin_sdk_vmodal_for_semantic_video/	Android Kotlin SDK (VModal) for semantic video search
+     https://www.reddit.com/r/v_modal/comments/1vv9p18/integrated_the_vmodal_android_kotlin_sdk_into_a/	Integrated the VModal Android Kotlin SDK into a native app — notes on Coroutines, Compose, and state scope
+     https://www.reddit.com/r/v_modal/comments/1vtmdr5/vmodal_helps_speed_up_video_processing_for/	​V-Modal helps speed up video processing for language learning
+     https://www.reddit.com/r/v_modal/comments/1vt8zcv/sharing_app_developed_with_vmodal/	Sharing app developed with V-Modal
+     https://www.reddit.com/r/v_modal/comments/1vsg5mf/vmodal_makes_searching_through_videos_feel_more/	V-Modal makes searching through videos feel more natural
+     https://www.reddit.com/r/v_modal/comments/1vsf2yb/tried_the_vmodal_android_sdk_semantic_video/	Tried the VModal Android SDK — semantic video search worked better than I expected
+     https://www.reddit.com/r/v_modal/comments/1vrik4h/welcome_to_rv_modal_introduce_yourself_and_read/	👋 Welcome to r/v_modal - Introduce Yourself and Read First!
+      
+
+    """,
+
+
+
+
+    """
         ```
         - "https://www.reddit.com/r/v_modal/comments/1wm5y34/comment/pb4d4t2/?screen_view_count=3&ext-referrer=DIRECT"
 
@@ -212,11 +289,25 @@ URL_LIST_ALL = [
 
 query_list = [
 
+    """ Provide Deep summary 
+          of Smart Glasses SDK and VModal with those documents: 
+
+       <url_list> 
+        <<URL_LIST>>
+
+       </url_list>
+    """,
+
+
 
     """ Provide Deep summary 
           of jev tools and VModal with those documents: 
 
-        <<URL_LIST>>
+       <url_list> 
+
+          <<URL_LIST>>
+
+       </url_list>
 
     """,
 
@@ -225,7 +316,11 @@ query_list = [
     """ Provide Deep summary 
           of dashCam Video Search with Vmodal with those documents: 
 
-        <<URL_LIST>>
+       <url_list> 
+
+          <<URL_LIST>>
+
+       <url_list> 
 
     """,
 
@@ -233,7 +328,11 @@ query_list = [
     """ Provide Deep summary 
           of cctv Video Search with VModal AI with those documents: 
 
-        <<URL_LIST>>
+       <url_list> 
+
+          <<URL_LIST>>
+
+       </url_list> 
 
     """,
 
@@ -241,65 +340,96 @@ query_list = [
     """ Provide Deep summary 
         of AI Video Search V-Modal with below content:
 
-        <<URL_LIST>>
+       <url_list> 
+
+          <<URL_LIST>>
+
+       </url_list>
 
     """,
 
 
     """ Provide Deep summary of below content 
         related to Smart Meta Glasses, Google Glasses with V-Modal SDK : 
-        <<URL_LIST>>
+
+       <url_list> 
+
+          <<URL_LIST>>
+
+       </url_list> 
 
     """,
 
 
     """
     Deep summary about integration of  Video Search with V Modal with
-        <<URL_LIST>>          
+ 
+       <url_list> 
+
+           <<URL_LIST>>         
+
+       </url_list> 
+
       """,
 
   
   """ Deep summary of VModal  or V-Modal Video Search for  Robotics and Physical AI using the content below:
   
-      <<URL_LIST>>    
+       <url_list> 
+
+          <<URL_LIST>>    
  
+       </url_list> 
+
   """,
   
 
   """ Summarize 
        between VModal SDK Video Search for Android and Flutter and IOS Swift  using the links below:
   
-        <<URL_LIST>>          
+       <url_list> 
+          <<URL_LIST>>          
+       </url_list> 
+
+
   """,
 
 
   """ Deep summarize 
    VModal , V_modal  SDK mobile video search API documentation  and Physical AI with content below: 
  
-     <<URL_LIST>>
 
+    <url_list> 
+          <<URL_LIST>>
+    </url_list> 
   """,
 
 
   """ Deep summarize with extra-details
    V-Modal Video search for CCTV recodings  : 
  
-     <<URL_LIST>>
+       <url_list>
+          <<URL_LIST>>
+       </url_list>
 
   """,
 
   """ Deep summarize with extra-details
    V-Modal framework use cases for Robotics and Physical AI: 
  
-     <<URL_LIST>>
+       <url_list>
+          <<URL_LIST>>
+       </url_list>
 
   """,
 
 
 
   """ Deep summarize with extra-details
-    V-Modal AI Video Search for Mobile Developers and Physical AI using V-Modal 
-     <<URL_LIST>>
+    V-Modal AI Video Search for Mobile Developers and Physical AI using V-Modal , vmodal sdk
+       <url_list>
+          <<URL_LIST>>
+       </url_list>
 
   """,
 
