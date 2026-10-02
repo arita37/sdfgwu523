@@ -20,7 +20,6 @@ jobs:
     steps:
       - uses: actions/checkout@v5
         with:
-          ref: dev
           fetch-depth: 0
           persist-credentials: true
 
@@ -49,7 +48,7 @@ jobs:
           retention-days: 30
 
       - name: Commit completed ranking rows
-        if: always()
+        if: success()
         timeout-minutes: 5
         env:
           TARGET_REF: ${{ github.ref_name }}
@@ -62,7 +61,7 @@ jobs:
             exit 0
           fi
           git commit -m "data(seo): daily citation rankings run=${GITHUB_RUN_ID}"
-          for attempt in 1 2 3; do
+          for _ in 1 2 3; do
             git pull --rebase origin "$TARGET_REF" || exit 1
             if git push origin "HEAD:refs/heads/$TARGET_REF"; then
               echo "Ranking TSV committed and pushed to $TARGET_REF"
