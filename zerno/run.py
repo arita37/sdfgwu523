@@ -323,7 +323,7 @@ URL_LIST_ALL = [
 
 query_list = [
 
-    """ Provide Deep summary 
+    """ Provide Deep detailed summary 
           of Smart Glasses SDK and VModal with those documents: 
 
        <url_list> 
