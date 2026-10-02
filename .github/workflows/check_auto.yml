@@ -1,4 +1,4 @@
-name: Daily Google AI citation ranking
+name: Daily check
 
 on:
   schedule:
