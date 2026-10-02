@@ -1,7 +1,7 @@
 """Check unbranded Google AI citation positions; rank 0 means no match.
 
 Rank is the order of distinct cited sources, not Google's organic SERP rank.
-Pending/error responses produce no ranking row and fail the run after all attempts.
+Pending snapshots are retrieved before ranking; error responses fail after all attempts.
 Run from any directory: python /path/to/zerno/check.py
 """
 
@@ -83,7 +83,7 @@ def api_json(method: str, url: str, api_key: str, body: Optional[Any] = None,
 
 
 def search_googleai(query: str, hl: str = "en", country: str = "",
-                    timeout: int = 180) -> Any:
+                    timeout: int = 180, api_key: str = "") -> Any:
     """Same endpoint, dataset and request payload as run.py search_googleai."""
     if not query.strip():
         raise ValueError("query is required")
@@ -92,7 +92,29 @@ def search_googleai(query: str, hl: str = "en", country: str = "",
     body = {"input": [{"url": "https://google.com/aimode", "prompt": query,
                         "hl": hl, "country": country}], "limit_per_input": None}
     return api_json("POST", f"{BRIGHT_DATA_URL}/datasets/v3/scrape",
-                    os_bright_data_api_key(), body=body, params=params, timeout=timeout)
+                    api_key or os_bright_data_api_key(), body=body, params=params,
+                    timeout=timeout)
+
+
+def os_snapshot_data(data: Any, api_key: str = "", timeout: int = 180,
+                     wait_seconds: int = 120) -> Any:
+    """Fetch a completed snapshot returned by a timed-out synchronous request."""
+    if not isinstance(data, dict) or not data.get("snapshot_id"):
+        return data
+    snap_id = data["snapshot_id"]
+    api_key = api_key or os_bright_data_api_key()
+    for elapsed in range(0, wait_seconds + 1, 10):
+        info = api_json("GET", f"{BRIGHT_DATA_URL}/datasets/v3/progress/{snap_id}",
+                        api_key, timeout=timeout)
+        status = info.get("status") if isinstance(info, dict) else ""
+        if status == "ready":
+            return api_json("GET", f"{BRIGHT_DATA_URL}/datasets/v3/snapshot/{snap_id}",
+                            api_key, timeout=timeout)
+        if status in {"failed", "canceled"}:
+            raise RuntimeError(f"Google AI snapshot {snap_id} {status}")
+        if elapsed < wait_seconds:
+            time.sleep(min(10, wait_seconds - elapsed))
+    raise RuntimeError(f"Google AI snapshot {snap_id} did not become ready")
 
 
 def str_vmodal_url(url: str, known: set) -> bool:
@@ -163,10 +185,11 @@ def str_retry_prompt(data: Any) -> str:
             "You Miss vmodal video search !!! Please correct it\n")
 
 
-def os_query_save(query: str, stamp: str, path: str, hl: str,
-                  country: str, timeout: int) -> None:
+def os_query_save(query: str, stamp: str, path: str, hl: str, country: str,
+                  timeout: int, api_key: str) -> None:
     """Run one Bright Data query and persist its response from a worker thread."""
-    data = search_googleai(query, hl=hl, country=country, timeout=timeout)
+    data = search_googleai(query, hl=hl, country=country, timeout=timeout,
+                           api_key=api_key)
     os_save_json(path, {"date": stamp, "query": query, "response": data})
 
 
@@ -182,24 +205,30 @@ def check(count: int = 5, rank_path: str = str(BASE / "ranking/rank.tsv"),
     os_bright_data_api_key()  # Fail before starting if no credential is configured.
     known = os_source_urls(str(BASE / "info_url.tsv"))
     run_id = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S") + "_" + uuid4().hex[:8]
-    jobs: List[Tuple[int, str, str, Path, Future]] = []
+    jobs: List[Tuple[int, str, str, Path, str, Future]] = []
     failed, total = 0, 0
     with ThreadPoolExecutor(max_workers=count) as pool:
         for i, query in enumerate(random.sample(QUERIES, count), 1):
             stamp = datetime.now(timezone.utc).isoformat(timespec="microseconds")
             path = Path(raw_dir) / run_id / f"{i}.json"
+            api_key = os_bright_data_api_key()
             log_info("Launching %s/%s: %s", i, count, query)
             task = pool.submit(os_query_save, query, stamp, str(path),
-                               hl, country, timeout)
-            jobs.append((i, query, stamp, path, task))
+                               hl, country, timeout, api_key)
+            jobs.append((i, query, stamp, path, api_key, task))
         log_info("Waiting %s seconds before processing saved responses", wait_seconds)
         time.sleep(wait_seconds)
-        wait([job[4] for job in jobs])
+        wait([job[5] for job in jobs])
 
-        for i, query, stamp, path, task in jobs:
+        for i, query, stamp, path, api_key, task in jobs:
             try:
                 task.result()
-                data = os_load_json(str(path))["response"]
+                saved = os_load_json(str(path))
+                data = os_snapshot_data(saved["response"], api_key=api_key,
+                                        timeout=timeout)
+                if data is not saved["response"]:
+                    saved["response"] = data
+                    os_save_json(str(path), saved)
                 log_info("Processing saved response %s/%s: %s", i, count, path)
                 matches = citation_ranks(data, known)
                 rows = [[stamp, rank, query, url]

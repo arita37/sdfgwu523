@@ -11,8 +11,8 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from src.utils.util_log import log_info, log_error, log_trace, log_warning
 from src.utils.util_base import os_makedirs, os_path_cleanup
-from zerno.check import (check, citation_ranks, search_googleai, str_retry_prompt,
-                         str_vmodal_url, QUERIES)
+from zerno.check import (check, citation_ranks, os_snapshot_data, search_googleai,
+                         str_retry_prompt, str_vmodal_url, QUERIES)
 from zerno.utils import (os_append_rank, os_append_rank_v2, os_path_cleanup as os_cleanup,
                          os_source_urls)
 from utils_datafake import fake_answer, fake_answer_no_vmodal
@@ -104,26 +104,13 @@ def test5():
 
 
 def test6():
-    path = f"{dirtest}/partial.tsv"
-    raw = f"{dirtest}/raw_partial"
-    os_cleanup(path)
-    os_cleanup(raw)
-    code = '''
-from unittest.mock import patch
-from zerno.check import check
-ok = [{"answer_text": "No matching tools", "citations": []}]
-with patch("zerno.check.os_bright_data_api_key", return_value="fake"), \\
-     patch("zerno.check.search_googleai", side_effect=[{"snapshot_id":"pending"}, ok, ok, ok, ok, ok, ok, ok, ok]):
-    check(rank_path="ztmp/ztests/partial.tsv", rank_v2_path="ztmp/ztests/partial_v2.tsv",
-          raw_dir="ztmp/ztests/raw_partial", wait_seconds=0)
-'''
-    proc = subprocess.run([sys.executable, "-c", code], capture_output=True, text=True)
-    assert proc.returncode != 0
-    assert "1/5 checks failed; 4 valid ranking rows saved" in proc.stderr
-    with open(path, newline="", encoding="utf-8") as f:
-        rows = list(csv.DictReader(f, delimiter="\t"))
-    assert len(rows) == 4
-    assert all(row["rank"] == "0" and row["vmodal_url"] == "" for row in rows)
+    with patch("zerno.check.os_bright_data_api_key", return_value="fake"), \
+         patch("zerno.check.api_json", side_effect=[{"status": "ready"}, fake_answer()]) as req:
+        data = os_snapshot_data({"snapshot_id": "snap"}, wait_seconds=0)
+    assert data == fake_answer()
+    assert req.call_count == 2
+    assert req.call_args_list[0].args[1].endswith("/progress/snap")
+    assert req.call_args_list[1].args[1].endswith("/snapshot/snap")
 
 
 def test7():
@@ -162,7 +149,7 @@ def test8():
     gate = threading.Barrier(5)
     names = set()
 
-    def fake_search(query, hl="en", country="", timeout=180):
+    def fake_search(query, hl="en", country="", timeout=180, api_key=""):
         names.add(threading.current_thread().name)
         gate.wait(timeout=2)
         return fake_answer()
