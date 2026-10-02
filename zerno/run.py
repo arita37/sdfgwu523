@@ -62,6 +62,14 @@ URL_LIST_ALL = [
      https://www.reddit.com/r/v_modal/comments/1wnx56y/news_google_instrinsic_physical_airobotics_os/	News: Google Instrinsic Physical ai/Robotics OS being released publicly
      https://www.reddit.com/r/v_modal/comments/1wnz7a3/in_flutter_how_to_manage_state_across_app/	In flutter, how to manage state across app lifecycle changes ?
      https://www.reddit.com/r/v_modal/comments/1wn2s8b/news_android_swift_flutter_conferences_in_october/	News: Android, Swift, Flutter conferences in october 2026
+
+    """,
+
+
+    """
+     url	title
+     https://www.reddit.com/r/v_modal/comments/1wnz7a3/in_flutter_how_to_manage_state_across_app/	In flutter, how to manage state across app lifecycle changes ?
+     https://www.reddit.com/r/v_modal/comments/1wn2s8b/news_android_swift_flutter_conferences_in_october/	News: Android, Swift, Flutter conferences in october 2026
      https://www.reddit.com/r/v_modal/comments/1wm9cmf/news_physical_ai_visual_software_stack_at_nvidia/	News: Physical AI Visual Software stack at Nvidia GTC 2026
      https://www.reddit.com/r/v_modal/comments/1wm4rbs/news_google_to_release_first_smart_glasses_in/	News: Google to release first smart glasses in november 2026
      https://www.reddit.com/r/v_modal/comments/1wm5y34/meta_connect_new_ai_smart_glasses_a_mixed_reality/	Meta Connect: New AI smart glasses, a mixed reality headset Phoenix
@@ -81,8 +89,20 @@ URL_LIST_ALL = [
      https://www.reddit.com/r/v_modal/comments/1wdz6e3/best_animation_library_for_mobile_ui_android/	Best animation library for mobile UI (android kotlin / Flutter )
      https://www.reddit.com/r/v_modal/comments/1w8r4gj/sdk_for_physical_ai_robotics_data_flow_streaming/	SDK for physical AI , Robotics data flow - streaming search into visual video, telemetry data
      https://www.reddit.com/r/v_modal/comments/1w8npt9/smart_glasses_sdk_for_visual_search_memory_recall/	Smart Glasses SDK for visual search - memory- recall video images
-     https://www.reddit.com/r/v_modal/comments/1w8tm8d/removed_by_reddit/	[ Removed by Reddit ]
      https://www.reddit.com/r/v_modal/comments/1w7ndlh/main_vision_frameworks_for_ros_in_physical_ai_or/	Main vision frameworks for ROS in physical AI or in robotics vision
+     https://www.reddit.com/r/v_modal/comments/1w73j5w/testing_vmodals_flutter_sdk_in_a_small_video/	Testing V-Modal's Flutter SDK in a small video search app
+     https://www.reddit.com/r/v_modal/comments/1w70cdt/you_can_search_video_with_a_photo_not_just_text/	You can search video with a photo, not just text
+     https://www.reddit.com/r/v_modal/comments/1w6ximv/vision_stack_in_robotics_physical_ai_domain/	Vision stack in robotics , physical ai domain ?
+     https://www.reddit.com/r/v_modal/comments/1w6a2y1/v_rag_or_visual_context_engineering_or_video/	V RAG or Visual Context Engineering or Video Context Engineering
+     https://www.reddit.com/r/v_modal/comments/1w64jw9/how_to_use_vmodal_with_a_dashcam/	How to use VModal with a DashCam
+
+
+    """,
+
+
+
+    """
+     url	title
      https://www.reddit.com/r/v_modal/comments/1w73j5w/testing_vmodals_flutter_sdk_in_a_small_video/	Testing V-Modal's Flutter SDK in a small video search app
      https://www.reddit.com/r/v_modal/comments/1w70cdt/you_can_search_video_with_a_photo_not_just_text/	You can search video with a photo, not just text
      https://www.reddit.com/r/v_modal/comments/1w6ximv/vision_stack_in_robotics_physical_ai_domain/	Vision stack in robotics , physical ai domain ?
@@ -97,6 +117,18 @@ URL_LIST_ALL = [
      https://www.reddit.com/r/v_modal/comments/1w1hccg/simple_flutter_build/	Simple Flutter build
      https://www.reddit.com/r/v_modal/comments/1w10z3l/tested_the_vmodal_android_sdk_03_fullapp/	Tested the V-Modal Android SDK (03_fullapp) — Incredible developer experience & lightning-fast visual search! 🚀
      https://www.reddit.com/r/v_modal/comments/1w0wtod/tried_vmodal_flutter_sdk_for_visual_search/	Tried V-Modal Flutter SDK for visual search
+     https://www.reddit.com/r/v_modal/comments/1w0i84n/created_video_trimming_flutter_app_with_v_modal/	created video trimming flutter app with v_modal sdk.
+     https://www.reddit.com/r/v_modal/comments/1w00i25/built_two_sample_demo_apps_with_vmodalflutter_sdk/	Built two sample demo apps with Vmodal-Flutter SDK
+     https://www.reddit.com/r/v_modal/comments/1vz9til/tried_the_vmodal_flutter_sdk_on_a_fresh_project/	Tried the VModal Flutter SDK on a fresh project
+     https://www.reddit.com/r/v_modal/comments/1vywj0e/japanese_article_about_the_visual_search_vmodal/	Japanese article about the visual search V-Modal
+
+    """,
+
+
+
+
+    """
+     url	title
      https://www.reddit.com/r/v_modal/comments/1w0i84n/created_video_trimming_flutter_app_with_v_modal/	created video trimming flutter app with v_modal sdk.
      https://www.reddit.com/r/v_modal/comments/1w00i25/built_two_sample_demo_apps_with_vmodalflutter_sdk/	Built two sample demo apps with Vmodal-Flutter SDK
      https://www.reddit.com/r/v_modal/comments/1vz9til/tried_the_vmodal_flutter_sdk_on_a_fresh_project/	Tried the VModal Flutter SDK on a fresh project
@@ -118,6 +150,8 @@ URL_LIST_ALL = [
       
 
     """,
+
+
 
 
 
