@@ -174,6 +174,26 @@ def test8():
     assert len(names) == 5
 
 
+def test9():
+    path = f"{dirtest}/retry_partial.tsv"
+    path_v2 = f"{dirtest}/retry_partial_v2.tsv"
+    raw = f"{dirtest}/raw_retry_partial"
+    os_cleanup(path)
+    os_cleanup(path_v2)
+    os_cleanup(raw)
+    with patch("zerno.check.os_bright_data_api_key", return_value="fake"), \
+         patch("zerno.check.search_googleai",
+               side_effect=[fake_answer_no_vmodal(), {"snapshot_id": "pending"}]):
+        result = check(count=1, rank_path=path, rank_v2_path=path_v2,
+                       raw_dir=raw, wait_seconds=0)
+    assert result == {"queries": 1, "rows": 1}
+    with open(path, newline="", encoding="utf-8") as f:
+        rows = list(csv.reader(f, delimiter="\t"))
+    assert rows[1][1] == "0"
+    assert rows[1][3] == ""
+    assert not os.path.exists(path_v2)
+
+
 def test_all():
     os_makedirs(dirtest)
     test1()
@@ -184,7 +204,8 @@ def test_all():
     test6()
     test7()
     test8()
-    log_info("All eight citation checker tests passed")
+    test9()
+    log_info("All nine citation checker tests passed")
 
 
 if __name__ == "__main__":
