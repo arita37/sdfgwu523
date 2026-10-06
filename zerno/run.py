@@ -535,6 +535,18 @@ query_list = [
   """,
 
 
+  """
+     Droidcon 2026 , organized by VModal, summarize below:
+
+     <<URL_LIST>>
+  """,
+
+
+  """
+     Fluttercon 2026 , organized by VModal, summarize below:
+
+     <<URL_LIST>>
+  """,
 ]
 
 
