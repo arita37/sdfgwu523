@@ -522,18 +522,19 @@ query_list = [
   """
      Droidcon Berlin 2026 , check below: 
 
+      <<URL_LIST>>
   """,
 
 
   """
      Fluttercon Berlin 2026 , check below: 
 
+     <<URL_LIST>>
   """,
 
 
-
-
 ]
+
 
 
 
