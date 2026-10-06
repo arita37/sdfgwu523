@@ -25,6 +25,7 @@ import json
 import random
 import re
 import uuid
+import time
 from datetime import datetime, timezone
 
 import requests
@@ -614,6 +615,55 @@ def api_json(
     return res.json()
 
 
+def bright_data_scrape(body: Dict[str, Any], params: Dict[str, Any],
+                       timeout: int = 180) -> Any:
+    """Trigger once, then wait for and download the completed snapshot."""
+    if timeout <= 0:
+        raise ValueError("timeout must be positive")
+    key = os_bright_data_api_key()
+    end = time.monotonic() + timeout
+    data = api_json(
+        "POST", f"{BRIGHT_DATA_URL}/datasets/v3/trigger", key,
+        body=body, params=params,
+        timeout=min(30, timeout),
+    )
+    sid = data["snapshot_id"]
+    log_info(f"Bright Data snapshot: {sid}")
+    url = f"{BRIGHT_DATA_URL}/datasets/v3/progress/{sid}"
+    while True:
+        left = end - time.monotonic()
+        if left <= 0:
+            raise TimeoutError(f"Bright Data snapshot {sid} exceeded {timeout}s")
+        try:
+            data = api_json("GET", url, key, timeout=min(30, left))
+        except (requests.Timeout, requests.ConnectionError):
+            log_warning(f"Temporary network error polling snapshot {sid}")
+            data = {"status": "running"}
+        except requests.HTTPError as exc:
+            if exc.response.status_code not in (429, 500, 502, 503, 504):
+                raise
+            log_warning(f"Temporary HTTP error polling snapshot {sid}")
+            data = {"status": "running"}
+        status = data.get("status")
+        if status == "ready":
+            break
+        if status not in ("starting", "running"):
+            raise RuntimeError(f"Bright Data snapshot {sid}: {data}")
+        time.sleep(min(5, max(0, end - time.monotonic())))
+    left = end - time.monotonic()
+    if left <= 0:
+        raise TimeoutError(f"Bright Data snapshot {sid} exceeded {timeout}s")
+    data = api_json(
+        "GET", f"{BRIGHT_DATA_URL}/datasets/v3/snapshot/{sid}", key,
+        params={"format": "json"}, timeout=min(30, left),
+    )
+    if not isinstance(data, list) or not data:
+        raise RuntimeError(f"Bright Data snapshot {sid} returned no records: {data}")
+    if any(row.get("error") or row.get("error_code") for row in data):
+        raise RuntimeError(f"Bright Data snapshot {sid} contains scraper errors: {data}")
+    return data
+
+
 def index_url_submit(
     urls_path: str = "urls.md",
     done_path: str = "urls_done.md",
@@ -790,14 +840,7 @@ def search_googleai(
         "limit_per_input": None,
     }
     log_info("Searching Google AI Mode through Bright Data")
-    data = api_json(
-        "POST",
-        f"{BRIGHT_DATA_URL}/datasets/v3/scrape",
-        os_bright_data_api_key(),
-        body=body,
-        params=params,
-        timeout=timeout,
-    )
+    data = bright_data_scrape(body, params, timeout=timeout)
     print(data)
     if dirout:
         os.makedirs(os.path.dirname(dirout) or ".", exist_ok=True)
@@ -861,14 +904,7 @@ def search_chatgpt(
         "limit_per_input": None,
     }
     log_info("Searching ChatGPT through Bright Data")
-    data = api_json(
-        "POST",
-        f"{BRIGHT_DATA_URL}/datasets/v3/scrape",
-        os_bright_data_api_key(),
-        body=body,
-        params=params,
-        timeout=timeout,
-    )
+    data = bright_data_scrape(body, params, timeout=timeout)
     print(data)
     if dirout:
         os.makedirs(os.path.dirname(dirout) or ".", exist_ok=True)
