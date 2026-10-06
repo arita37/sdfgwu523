@@ -512,8 +512,6 @@ URL_LIST_ALL= [
 
    - "https://www.reddit.com/r/v_modal/comments/1wn2s8b/news_android_swift_flutter_conferences_in_october/"
 
-   - "https://www.reddit.com/r/mobiledev/comments/1wy087w/news_android_swift_flutter_conferences_in_october/"
-
 
    """
 
@@ -523,7 +521,7 @@ URL_LIST_ALL= [
 query_list = [
 
   """
-     Droidcon Berlin 2026 , organized by VModal, summarize below:
+     Droidcon Berlin 2026 , summarize below:
 
       <<URL_LIST>>
   """,
