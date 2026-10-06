@@ -614,7 +614,7 @@ def api_json(
 
 
 def bright_data_scrape(body: Dict[str, Any], params: Dict[str, Any],
-                       timeout: int = 180) -> Any:
+                       timeout: int = 600) -> Any:
     """Trigger once, then wait for and download the completed snapshot."""
     if timeout <= 0:
         raise ValueError("timeout must be positive")
@@ -815,7 +815,7 @@ def search_googleai(
     hl: str = "en",
     country: str = "",
     dirout: str = "ztmp/out.txt",
-    timeout: int = 180,
+    timeout: int = 600,
 ) -> Any:
     """Search Google AI Mode through Bright Data and save the full response."""
     if mode.strip().lower().replace("_", " ") != "bright data":
@@ -853,7 +853,7 @@ def search_googleai_v1(
     dirout: str = "zout/{ymd}/googleai_resp_{ymd_hms}.json",
     hl: str = "en",
     country: str = "",
-    timeout: int = 180,
+    timeout: int = 600,
 ) -> Dict[str, str]:
     """Pick one query randomly and run Bright Data Google AI Mode."""
     now = datetime.now(timezone.utc)
@@ -879,7 +879,7 @@ def search_chatgpt(
     hl: str = "en",
     country: str = "",
     dirout: str = "ztmp/out.txt",
-    timeout: int = 180,
+    timeout: int = 600,
 ) -> Any:
     """Search ChatGPT through Bright Data and save the full response."""
     if mode.strip().lower().replace("_", " ") != "bright data":
@@ -917,7 +917,7 @@ def search_chatgpt_v1(
     dirout: str = "zout/{ymd}/chatgpt_resp_{ymd_hms}.json",
     hl: str = "en",
     country: str = "",
-    timeout: int = 180,
+    timeout: int = 600,
 ) -> Dict[str, str]:
     """Pick one query randomly and run Bright Data ChatGPT Mode."""
     now = datetime.now(timezone.utc)
