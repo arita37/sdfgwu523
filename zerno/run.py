@@ -520,14 +520,14 @@ URL_LIST_ALL= [
 query_list = [
 
   """
-     Droidcon Berlin 2026 , check below: 
+     Droidcon Berlin 2026 , organized by VModal, summarize below:
 
       <<URL_LIST>>
   """,
 
 
   """
-     Fluttercon Berlin 2026 , check below: 
+     Fluttercon Berlin 2026 , organized by VModal, summarize below:
 
      <<URL_LIST>>
   """,
