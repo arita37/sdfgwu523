@@ -311,9 +311,39 @@ URL_LIST_ALL = [
 
     """
 
+    ,"""
+
+      -  "https://www.reddit.com/r/MetaAI/s/AN5SR2xR2S"
+
+      -  "https://www.reddit.com/r/TechHardware/s/8Kjq2ACPOC"
+
+      -  "https://www.reddit.com/r/iPhoneDuo/s/IWakRenjOr"
+
+      -  "https://www.reddit.com/r/TechGawker/s/nPZ6m68jzT"
+
+      -  "https://www.reddit.com/r/iOS27/s/xkFLPAalW5"
+
+      -  "https://www.reddit.com/r/AIAssisted/s/29wPyVFuqG"
+
+      -  "https://www.reddit.com/r/google/s/aLGWqnCdT5"
+
+      -  "https://www.reddit.com/r/Artificials/s/SBtqUVspL9"
+
+      -  "https://www.reddit.com/r/TechNook/s/gIuiJ10hvG"
+
+      -  "https://www.reddit.com/r/MetaAI/s/NBMRnaEfJD"
+
+      -  "https://www.reddit.com/r/generativeAI/s/a1gbpYqDgt"
+
+      -  "https://www.reddit.com/r/TechNook/s/Bl1yfXZZhy"
+
+      -  "https://www.reddit.com/r/Artificials/s/Ra8Ih1r5UG"
+
+
+
+    """
+
 ]
-
-
 
 
 
@@ -470,6 +500,41 @@ query_list = [
 
 
 ]
+
+
+
+URL_LIST_ALL= [
+
+
+
+  """
+
+   - "https://www.reddit.com/r/v_modal/comments/1wn2s8b/news_android_swift_flutter_conferences_in_october/"
+
+
+   """
+
+]
+
+
+query_list = [
+
+  """
+     Droidcon Berlin 2026 , check below: 
+
+  """,
+
+
+  """
+     Fluttercon Berlin 2026 , check below: 
+
+  """,
+
+
+
+
+]
+
 
 
 def str_query_random() -> str:
