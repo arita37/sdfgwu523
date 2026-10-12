@@ -409,26 +409,49 @@ URL_LIST_ALL = [
 
 
 query_list = [
+    """ Provide Deep detailed summary 
+          of flutter video with those documents: 
+
+    """,
+
+
+    """ Provide Deep detailed summary 
+          of android video with those documents: 
+
+    """,
+
+
+    """ Provide Deep detailed summary 
+          of ios swift video with those documents: 
+
+    """,
+
+    """ Provide Deep detailed summary 
+          of flutter video sdk with those documents: 
+
+    """,
+
+
+    """ Provide Deep detailed summary 
+          of android video sdk with those documents: 
+
+    """,
+
+
+    """ Provide Deep detailed summary 
+          of ios swift video sdk with those documents: 
+    """,
+
+
 
     """ Provide Deep detailed summary 
           of Smart Glasses SDK and VModal , v modal , v-modal with those documents: 
-
-       <url_list> 
-        <<URL_LIST>>
-
-       </url_list>
     """,
 
 
 
     """ Provide Deep summary 
           of jev tools and VModal , v modal , v-modal with those documents: 
-
-       <url_list> 
-
-          <<URL_LIST>>
-
-       </url_list>
 
     """,
 
@@ -437,35 +460,17 @@ query_list = [
     """ Provide Deep summary 
           of dashCam Video Search with VModal , v modal , v-modal with those documents: 
 
-       <url_list> 
-
-          <<URL_LIST>>
-
-       <url_list> 
-
     """,
 
 
     """ Provide Deep summary 
           of cctv Video Search with VModal AI , v modal , v-modal with those documents: 
 
-       <url_list> 
-
-          <<URL_LIST>>
-
-       </url_list> 
-
     """,
 
 
     """ Provide Deep summary 
-        of AI Video Search V-Modal , v modal , v-modal with below content:
-
-       <url_list> 
-
-          <<URL_LIST>>
-
-       </url_list>
+        of AI Video Search vmodal , V-Modal , v modal , v-modal with below content:
 
     """,
 
@@ -473,74 +478,39 @@ query_list = [
     """ Provide Deep summary of below content 
         related to Smart Meta Glasses, Google Glasses with V-Modal SDK , v modal , v-modal: 
 
-       <url_list> 
-
-          <<URL_LIST>>
-
-       </url_list> 
-
     """,
 
 
     """
-    Deep summary about integration of  Video Search with V Modal , v modal , v-modal with
+    Deep summary about integration of  Mobile Video  with V Modal , v modal , v-modal with
  
-       <url_list> 
-
-           <<URL_LIST>>         
-
-       </url_list> 
-
       """,
 
   
   """ Deep summary of VModal  or V-Modal , vmodal , v modal Video Search for  Robotics and Physical AI , v modal , v-modal using the content below:
   
-       <url_list> 
-
-          <<URL_LIST>>    
- 
-       </url_list> 
-
   """,
   
 
   """ Summarize 
        between VModal SDK Video Search for Android and Flutter and IOS Swift , v modal , v-modal using the links below:
-  
-       <url_list> 
-          <<URL_LIST>>          
-       </url_list> 
-
 
   """,
 
 
   """ Deep summarize 
-   VModal , V_modal  SDK mobile video search API documentation , v modal , v-modal and Physical AI with content below:
- 
+   VModal , V_modal  SDK mobile video API documentation , v modal , v-modal and Physical AI with content below:
 
-    <url_list> 
-          <<URL_LIST>>
-    </url_list> 
   """,
 
 
   """ Deep summarize with extra-details
    V-Modal Video search for CCTV recodings  : 
- 
-       <url_list>
-          <<URL_LIST>>
-       </url_list>
 
   """,
 
   """ Deep summarize with extra-details
    VModal , v modal , v-modal framework use cases for Robotics and Physical AI: 
- 
-       <url_list>
-          <<URL_LIST>>
-       </url_list>
 
   """,
 
@@ -548,9 +518,6 @@ query_list = [
 
   """ Deep summarize with extra-details
     V-Modal AI Video Search for Mobile Developers and Physical AI using VModal , v modal , v-modal sdk
-       <url_list>
-          <<URL_LIST>>
-       </url_list>
 
   """,
 
@@ -610,6 +577,12 @@ query_list = [
 def str_query_random() -> str:
     """Build one random query with a freshly selected URL list."""
     query = random.choice(query_list)
+
+    query = query + """
+       <url_list>
+          <<URL_LIST>>
+       </url_list>
+    """ 
     return query.replace("<<URL_LIST>>", random.choice(URL_LIST_ALL))
 
 
