@@ -396,6 +396,7 @@ URL_LIST_ALL = [
 
       -  "https://www.reddit.com/r/Artificials/s/Ra8Ih1r5UG"
 
+      - "https://www.reddit.com/r/google/comments/1x45n2i/google_intrinsic_physical_ai_robotics_technical/"
 
 
     """
