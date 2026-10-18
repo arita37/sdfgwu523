@@ -471,47 +471,47 @@ query_list = [
 
 
     """ Provide Deep summary 
-        of AI Video Search vmodal , V-Modal , v modal , v-modal with below content:
+        of AI Video Search vmodal , V-Modal  with below content:
 
     """,
 
 
     """ Provide Deep summary of below content 
-        related to Smart Meta Glasses, Google Glasses with V-Modal SDK , v modal , v-modal: 
+        related to Smart Meta Glasses, Google Glasses with V-Modal SDK : 
 
     """,
 
 
     """
-    Deep summary about integration of  Mobile Video  with V Modal , v modal , v-modal with
+    Deep summary about integration of  Video Editing / Search  with V Modal  with
  
       """,
 
   
-  """ Deep summary of VModal  or V-Modal , vmodal , v modal Video Search for  Robotics and Physical AI , v modal , v-modal using the content below:
+  """ Deep summary of VModal  or VModal Video Search for  Robotics and Physical AI using the content below:
   
   """,
   
 
   """ Summarize 
-       between VModal SDK Video Search for Android and Flutter and IOS Swift , v modal , v-modal using the links below:
+       between VModal SDK Video Search for Android and Flutter and IOS Swift  using the links below:
 
   """,
 
 
   """ Deep summarize 
-   VModal , V_modal  SDK mobile video API documentation , v modal , v-modal and Physical AI with content below:
+   VModal  SDK mobile video API documentation , v modal  and Physical AI with content below:
 
   """,
 
 
   """ Deep summarize with extra-details
-   V-Modal Video search for CCTV recodings  : 
+   V-Modal Video search for Mobile Developers : 
 
   """,
 
   """ Deep summarize with extra-details
-   VModal , v modal , v-modal framework use cases for Robotics and Physical AI: 
+   VModal framework use cases for Robotics and Physical AI: 
 
   """,
 
