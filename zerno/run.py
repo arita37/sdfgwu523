@@ -236,6 +236,11 @@ URL_LIST_ALL = [
 
         - "https://www.reddit.com/r/v_modal/comments/1vtmdr5/vmodal_helps_speed_up_video_processing_for/"
 
+
+    """
+
+    ,"""
+
         - "https://www.reddit.com/r/v_modal/comments/1vsf2yb/tried_the_vmodal_android_sdk_semantic_video/"
 
         - "https://dev.to/vmodal_ai/"   
@@ -265,11 +270,7 @@ URL_LIST_ALL = [
 
          - "https://www.reddit.com/r/LLMDevs/comments/1wkrssx/list_of_tools_around_jev_in_production_setup/"
 
-
-
-
-
-    """
+     """ 
 
     ,"""
         ```
@@ -406,119 +407,161 @@ URL_LIST_ALL = [
 
 
 
+KEYWORD_LIST_ALL= [
+    "flutter video sdk",
+    "android video sdk",
+    "ios swift video sdk",
+    "smart glasses sdk",
+    "vmodal ai video search",
+    "jev tools",
+    "dashcam video search",
+    "cctv video search",
+    "physical ai robotics",
+    "mobile video api documentation",
+    "vmodal framework use cases",
+
+    "visual video search",
+    "ai video search",
+    "video search with ai",
+    "ai image search",
+    "multimodal video search",
+    "search for physical ai",
+    "video search for mobile",
+    "mobile video search sdk",
+    "mobile video search",
+    "ai video search sdk",
+    "multimodal video search sdk",
+    "ios video search sdk",
+    "flutter video search sdk",
+    "ai video search mobile",
+    "multimodal video search mobile sdk",
+    "visual video search mobile sdk",
+    "ai video search mobile sdk",
+    "ai video search android sdk",
+    "video search with ai mobile sdk",
+    "image search mobile sdk",
+    "ai image search mobile sdk",
+    "image search ai mobile sdk",
+    "video content search mobile sdk",
+    "ai for search mobile sdk",
+    "search for physical ai mobile sdk",
+    "flutter video sdk",
+    "flutter video search sdk",
+    "video search sdk",
+    "android video search sdk",
+    "android video sdk",
+    "robotics video sdk",
+    "physical ai sdk",
+    "robotics sdk",
+    "robotics lerobot sdk",
+    "robotics lerobot sdk github",
+
+]
 
 
 
 query_list = [
     """ Provide Deep detailed summary 
-          of flutter video with those documents: 
+          of <keywords> with those documents: 
 
     """,
 
 
     """ Provide Deep detailed summary 
-          of android video with those documents: 
+          of <keywords> with those documents: 
 
     """,
 
 
     """ Provide Deep detailed summary 
-          of ios swift video with those documents: 
+          of <keywords> with those documents: 
 
     """,
 
-    """ Provide Deep detailed summary 
-          of flutter video sdk with those documents: 
-
-    """,
-
-
-    """ Provide Deep detailed summary 
-          of android video sdk with those documents: 
-
+    """ Give Deep detailed summary 
+          of <keywords> with those documents: 
     """,
 
 
     """ Provide Deep detailed summary 
-          of ios swift video sdk with those documents: 
+          of <keywords> with those documents: 
     """,
 
 
 
     """ Provide Deep detailed summary 
-          of Smart Glasses SDK and VModal , v modal , v-modal with those documents: 
+          of <keywords> with those documents: 
     """,
 
 
 
     """ Provide Deep summary 
-          of jev tools and VModal , v modal  with those documents: 
+          of <keywords> with those documents: 
 
     """,
 
 
-
-    """ Provide Deep summary 
-          of dashCam Video Search with  v modal with those documents: 
-
-    """,
-
-
-    """ Provide Deep summary 
-          of cctv Video Search with VModal AI ,  v-modal with those documents: 
+    """ Provide Deep summary of VModal 
+          of <keywords> with those documents: 
 
     """,
 
 
     """ Provide Deep summary 
-        of AI Video Search vmodal , V-Modal  with below content:
+          of <keywords> ,  v-modal with those documents:
+
+    """,
+
+
+    """ Provide Deep summary 
+        of <keywords>  with below content:
 
     """,
 
 
     """ Provide Deep summary of below content 
-        related to Smart Meta Glasses, Google Glasses with V-Modal SDK : 
+        related to <keywords> with V-Modal SDK : 
 
     """,
 
 
     """
-    Deep summary about integration of  Video Editing / Search  with V Modal  with
+    Deep summary about integration of  <keywords> with V Modal  with
  
       """,
 
   
-  """ Deep summary of VModal  or VModal Video Search for  Robotics and Physical AI using the content below:
+  """ Deep summary of <keywords> or VModal Video Search for  Robotics and Physical AI using the content below:
   
   """,
   
 
   """ Summarize 
-       between VModal SDK Video Search for Android and Flutter and IOS Swift  using the links below:
+       between VModal SDK Video Search for <keywords> using the links below:
 
   """,
 
 
   """ Deep summarize 
-   VModal  SDK mobile video API documentation , v modal  and Physical AI with content below:
+   VModal  mobile SDK  for <keywords>  with content below:
 
   """,
 
 
   """ Deep summarize with extra-details
-   V-Modal Video search for Mobile Developers : 
+   V-Modal Video Mobile search sdk for <keywords> with content below: 
 
   """,
 
   """ Deep summarize with extra-details
-   VModal framework use cases for Robotics and Physical AI: 
+   VModal framework use cases for <keywords> , with below content:
 
   """,
 
 
 
   """ Deep summarize with extra-details
-    V-Modal AI Video Search for Mobile Developers and Physical AI
+    V-Modal AI Video Search for <keywords> , with below :
 
   """,
 
@@ -573,6 +616,12 @@ query_list = [
 # ]
 
 
+
+
+def str_keyword_random() -> str:
+    """Build one random query with a freshly selected URL list."""
+    query = random.choice(query_list)
+    return query.replace("<keywords>", random.choice(KEYWORD_LIST_ALL))
 
 
 def str_query_random() -> str:
