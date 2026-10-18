@@ -1,6 +1,9 @@
 """
 Zernio posting and Bright Data post-generation helpers.
 
+Bright Data commands return a snapshot_id after submission. Result polling,
+downloads, and file saving are commented out; dirout and dir_asset are unused.
+
 CLI examples:
   source "ztmp/env_gitignore.sh"
   python uinterface/zernio/run.py create_post --prompt="Write a post about APIs"
@@ -693,12 +696,12 @@ def api_json(
 
 
 def bright_data_scrape(body: Dict[str, Any], params: Dict[str, Any],
-                       timeout: int = 600) -> Any:
-    """Trigger once, then wait for and download the completed snapshot."""
+                       timeout: int = 600) -> Dict[str, Any]:
+    """Submit an asynchronous job and return its snapshot acknowledgement."""
     if timeout <= 0:
         raise ValueError("timeout must be positive")
     key = os_bright_data_api_key()
-    end = time.monotonic() + timeout
+    # end = time.monotonic() + timeout
     data = api_json(
         "POST", f"{BRIGHT_DATA_URL}/datasets/v3/trigger", key,
         body=body, params=params,
@@ -706,38 +709,39 @@ def bright_data_scrape(body: Dict[str, Any], params: Dict[str, Any],
     )
     sid = data["snapshot_id"]
     log_info(f"Bright Data snapshot: {sid}")
-    url = f"{BRIGHT_DATA_URL}/datasets/v3/progress/{sid}"
-    while True:
-        left = end - time.monotonic()
-        if left <= 0:
-            raise TimeoutError(f"Bright Data snapshot {sid} exceeded {timeout}s")
-        try:
-            data = api_json("GET", url, key, timeout=min(30, left))
-        except (requests.Timeout, requests.ConnectionError):
-            log_warning(f"Temporary network error polling snapshot {sid}")
-            data = {"status": "running"}
-        except requests.HTTPError as exc:
-            if exc.response.status_code not in (429, 500, 502, 503, 504):
-                raise
-            log_warning(f"Temporary HTTP error polling snapshot {sid}")
-            data = {"status": "running"}
-        status = data.get("status")
-        if status == "ready":
-            break
-        if status not in ("starting", "running"):
-            raise RuntimeError(f"Bright Data snapshot {sid}: {data}")
-        time.sleep(min(5, max(0, end - time.monotonic())))
-    left = end - time.monotonic()
-    if left <= 0:
-        raise TimeoutError(f"Bright Data snapshot {sid} exceeded {timeout}s")
-    data = api_json(
-        "GET", f"{BRIGHT_DATA_URL}/datasets/v3/snapshot/{sid}", key,
-        params={"format": "json"}, timeout=min(30, left),
-    )
-    if not isinstance(data, list) or not data:
-        raise RuntimeError(f"Bright Data snapshot {sid} returned no records: {data}")
-    if any(row.get("error") or row.get("error_code") for row in data):
-        raise RuntimeError(f"Bright Data snapshot {sid} contains scraper errors: {data}")
+    # Polling and result downloads are disabled for asynchronous submission.
+    # url = f"{BRIGHT_DATA_URL}/datasets/v3/progress/{sid}"
+    # while True:
+    #     left = end - time.monotonic()
+    #     if left <= 0:
+    #         raise TimeoutError(f"Bright Data snapshot {sid} exceeded {timeout}s")
+    #     try:
+    #         data = api_json("GET", url, key, timeout=min(30, left))
+    #     except (requests.Timeout, requests.ConnectionError):
+    #         log_warning(f"Temporary network error polling snapshot {sid}")
+    #         data = {"status": "running"}
+    #     except requests.HTTPError as exc:
+    #         if exc.response.status_code not in (429, 500, 502, 503, 504):
+    #             raise
+    #         log_warning(f"Temporary HTTP error polling snapshot {sid}")
+    #         data = {"status": "running"}
+    #     status = data.get("status")
+    #     if status == "ready":
+    #         break
+    #     if status not in ("starting", "running"):
+    #         raise RuntimeError(f"Bright Data snapshot {sid}: {data}")
+    #     time.sleep(min(5, max(0, end - time.monotonic())))
+    # left = end - time.monotonic()
+    # if left <= 0:
+    #     raise TimeoutError(f"Bright Data snapshot {sid} exceeded {timeout}s")
+    # data = api_json(
+    #     "GET", f"{BRIGHT_DATA_URL}/datasets/v3/snapshot/{sid}", key,
+    #     params={"format": "json"}, timeout=min(30, left),
+    # )
+    # if not isinstance(data, list) or not data:
+    #     raise RuntimeError(f"Bright Data snapshot {sid} returned no records: {data}")
+    # if any(row.get("error") or row.get("error_code") for row in data):
+    #     raise RuntimeError(f"Bright Data snapshot {sid} contains scraper errors: {data}")
     return data
 
 
@@ -896,7 +900,7 @@ def search_googleai(
     dirout: str = "ztmp/out.txt",
     timeout: int = 600,
 ) -> Any:
-    """Search Google AI Mode through Bright Data and save the full response."""
+    """Submit a Google AI Mode job and return its snapshot acknowledgement."""
     if mode.strip().lower().replace("_", " ") != "bright data":
         raise ValueError("Only mode='bright data' is supported")
     if not query.strip():
@@ -919,12 +923,13 @@ def search_googleai(
     log_info("Searching Google AI Mode through Bright Data")
     data = bright_data_scrape(body, params, timeout=timeout)
     print(data)
-    if dirout:
-        os.makedirs(os.path.dirname(dirout) or ".", exist_ok=True)
-        with open(dirout, "w", encoding="utf-8") as f:
-            json.dump(data, f, ensure_ascii=False, indent=2)
-            f.write("\n")
-        log_info(f"Google AI response saved to {dirout}")
+    # Full result saving is disabled; data contains the submission acknowledgement.
+    # if dirout:
+    #     os.makedirs(os.path.dirname(dirout) or ".", exist_ok=True)
+    #     with open(dirout, "w", encoding="utf-8") as f:
+    #         json.dump(data, f, ensure_ascii=False, indent=2)
+    #         f.write("\n")
+    #     log_info(f"Google AI response saved to {dirout}")
     return data
 
 
@@ -933,23 +938,23 @@ def search_googleai_v1(
     hl: str = "en",
     country: str = "",
     timeout: int = 600,
-) -> Dict[str, str]:
-    """Pick one query randomly and run Bright Data Google AI Mode."""
-    now = datetime.now(timezone.utc)
-    dirout = dirout.format(
-        ymd=now.strftime("%Y%m%d"),
-        ymd_hms=now.strftime("%Y%m%d_%H%M%S"),
-    )
+) -> Dict[str, Any]:
+    """Submit one random Google AI Mode query and return its snapshot acknowledgement."""
+    # now = datetime.now(timezone.utc)
+    # dirout = dirout.format(
+    #     ymd=now.strftime("%Y%m%d"),
+    #     ymd_hms=now.strftime("%Y%m%d_%H%M%S"),
+    # )
     query = str_query_random()
     log_info(f"Selected Google AI query: {query}")
-    search_googleai(
+    data = search_googleai(
         query=query,
         hl=hl,
         country=country,
         dirout=dirout,
         timeout=timeout,
     )
-    return {"query": query, "dirout": dirout}
+    return {"query": query, **data}
 
 
 def search_chatgpt(
@@ -960,7 +965,7 @@ def search_chatgpt(
     dirout: str = "ztmp/out.txt",
     timeout: int = 600,
 ) -> Any:
-    """Search ChatGPT through Bright Data and save the full response."""
+    """Submit a ChatGPT job and return its snapshot acknowledgement."""
     if mode.strip().lower().replace("_", " ") != "bright data":
         raise ValueError("Only mode='bright data' is supported")
     if not query.strip():
@@ -983,12 +988,13 @@ def search_chatgpt(
     log_info("Searching ChatGPT through Bright Data")
     data = bright_data_scrape(body, params, timeout=timeout)
     print(data)
-    if dirout:
-        os.makedirs(os.path.dirname(dirout) or ".", exist_ok=True)
-        with open(dirout, "w", encoding="utf-8") as f:
-            json.dump(data, f, ensure_ascii=False, indent=2)
-            f.write("\n")
-        log_info(f"ChatGPT response saved to {dirout}")
+    # Full result saving is disabled; data contains the submission acknowledgement.
+    # if dirout:
+    #     os.makedirs(os.path.dirname(dirout) or ".", exist_ok=True)
+    #     with open(dirout, "w", encoding="utf-8") as f:
+    #         json.dump(data, f, ensure_ascii=False, indent=2)
+    #         f.write("\n")
+    #     log_info(f"ChatGPT response saved to {dirout}")
     return data
 
 
@@ -997,23 +1003,23 @@ def search_chatgpt_v1(
     hl: str = "en",
     country: str = "",
     timeout: int = 600,
-) -> Dict[str, str]:
-    """Pick one query randomly and run Bright Data ChatGPT Mode."""
-    now = datetime.now(timezone.utc)
-    dirout = dirout.format(
-        ymd=now.strftime("%Y%m%d"),
-        ymd_hms=now.strftime("%Y%m%d_%H%M%S"),
-    )
+) -> Dict[str, Any]:
+    """Submit one random ChatGPT query and return its snapshot acknowledgement."""
+    # now = datetime.now(timezone.utc)
+    # dirout = dirout.format(
+    #     ymd=now.strftime("%Y%m%d"),
+    #     ymd_hms=now.strftime("%Y%m%d_%H%M%S"),
+    # )
     query = str_query_random()
     log_info(f"Selected ChatGPT query: {query}")
-    search_chatgpt(
+    data = search_chatgpt(
         query=query,
         hl=hl,
         country=country,
         dirout=dirout,
         timeout=timeout,
     )
-    return {"query": query, "dirout": dirout}
+    return {"query": query, **data}
 
 
 
@@ -1026,7 +1032,7 @@ def create_post(
     web_search: bool = True,
     timeout: int = 180,
 ) -> Dict[str, Any]:
-    """Create a Markdown post with Bright Data and save its response assets."""
+    """Submit a Markdown post-generation job and return its snapshot acknowledgement."""
     prompt = prompt.strip()
     if not prompt:
         raise ValueError("prompt is required")
@@ -1051,47 +1057,42 @@ def create_post(
         }]
     }
     log_info("Creating post through Bright Data")
-    data = api_json(
-        "POST",
-        f"{BRIGHT_DATA_URL}/datasets/v3/scrape",
-        os_bright_data_api_key(),
-        body=body,
-        params=params,
-        timeout=timeout,
-    )
+    data = bright_data_scrape(body, params, timeout=timeout)
+    return data
 
-    item = data[0] if isinstance(data, list) and data else {}
-    if not isinstance(item, dict):
-        raise RuntimeError("Bright Data returned an unexpected response")
-    if item.get("error"):
-        raise RuntimeError(f"Bright Data failed: {item['error']}")
-
-    md_text = (
-        item.get("answer_text_markdown")
-        or item.get("additional_answer_text")
-        or item.get("answer_text")
-        or ""
-    ).strip()
-    if not md_text:
-        raise RuntimeError("Bright Data response did not contain post text")
-
-    print(md_text)
-    os.makedirs(dir_asset, exist_ok=True)
-    post_path = os.path.join(dir_asset, "post.md")
-    result_path = os.path.join(dir_asset, "result.json")
-    with open(post_path, "w", encoding="utf-8") as f:
-        f.write(md_text + "\n")
-    with open(result_path, "w", encoding="utf-8") as f:
-        json.dump(data, f, ensure_ascii=False, indent=2)
-        f.write("\n")
-
-    log_info(f"Post saved to {post_path}")
-    return {
-        "post_markdown": md_text,
-        "post_path": post_path,
-        "result_path": result_path,
-        "result": item,
-    }
+    # Full post extraction and asset saving are disabled for asynchronous jobs.
+    # item = data[0] if isinstance(data, list) and data else {}
+    # if not isinstance(item, dict):
+    #     raise RuntimeError("Bright Data returned an unexpected response")
+    # if item.get("error"):
+    #     raise RuntimeError(f"Bright Data failed: {item['error']}")
+    #
+    # md_text = (
+    #     item.get("answer_text_markdown")
+    #     or item.get("additional_answer_text")
+    #     or item.get("answer_text")
+    #     or ""
+    # ).strip()
+    # if not md_text:
+    #     raise RuntimeError("Bright Data response did not contain post text")
+    #
+    # print(md_text)
+    # os.makedirs(dir_asset, exist_ok=True)
+    # post_path = os.path.join(dir_asset, "post.md")
+    # result_path = os.path.join(dir_asset, "result.json")
+    # with open(post_path, "w", encoding="utf-8") as f:
+    #     f.write(md_text + "\n")
+    # with open(result_path, "w", encoding="utf-8") as f:
+    #     json.dump(data, f, ensure_ascii=False, indent=2)
+    #     f.write("\n")
+    #
+    # log_info(f"Post saved to {post_path}")
+    # return {
+    #     "post_markdown": md_text,
+    #     "post_path": post_path,
+    #     "result_path": result_path,
+    #     "result": item,
+    # }
 
 
 if __name__ == "__main__":
