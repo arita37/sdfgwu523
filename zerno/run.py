@@ -452,20 +452,20 @@ query_list = [
 
 
     """ Provide Deep summary 
-          of jev tools and VModal , v modal , v-modal with those documents: 
+          of jev tools and VModal , v modal  with those documents: 
 
     """,
 
 
 
     """ Provide Deep summary 
-          of dashCam Video Search with VModal , v modal , v-modal with those documents: 
+          of dashCam Video Search with  v modal with those documents: 
 
     """,
 
 
     """ Provide Deep summary 
-          of cctv Video Search with VModal AI , v modal , v-modal with those documents: 
+          of cctv Video Search with VModal AI ,  v-modal with those documents: 
 
     """,
 
@@ -518,7 +518,7 @@ query_list = [
 
 
   """ Deep summarize with extra-details
-    V-Modal AI Video Search for Mobile Developers and Physical AI using VModal , v modal , v-modal sdk
+    V-Modal AI Video Search for Mobile Developers and Physical AI
 
   """,
 
