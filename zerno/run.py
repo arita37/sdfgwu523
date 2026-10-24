@@ -55,6 +55,8 @@ URL_LIST_ALL = [
     """
     url	title
     https://www.v-modal.com/developers
+    https://www.v-modal.com/blog/google-intrisinc-robotics-os-ecosystem
+    https://www.v-modal.com/guides
     https://www.reddit.com/r/v_modal/comments/1wv0nkt/news_nvidia_jetson_thor_advanced_physical_ai_with/	News: Nvidia Jetson Thor: Advanced Physical AI with visual vision platform
     https://www.reddit.com/r/v_modal/comments/1wu2wib/news_higgsfield_cinema_studio_for_video/	News : Higgsfield Cinema Studio for video generation control
     https://www.reddit.com/r/v_modal/comments/1wt8be8/news_apple_smart_glasses_expected_to_launch_on/	News: Apple Smart Glasses expected to launch on 2027
@@ -70,6 +72,8 @@ URL_LIST_ALL = [
     """
     url	title
     https://www.v-modal.com/developers
+    https://www.v-modal.com/blog/google-intrisinc-robotics-os-ecosystem
+    https://www.v-modal.com/guides
     https://www.reddit.com/r/v_modal/comments/1wpwr53/video_editor_alternative_to_capcut_for_video/	Video Editor: Alternative to CapCut for video editing on mobile
     https://www.reddit.com/r/v_modal/comments/1wov9bh/news_meta_unveils_3_new_smart_glasses_with_ai/	News: Meta unveils 3 new smart glasses : with AI support and privacy enabled
     https://www.reddit.com/r/v_modal/comments/1wnx56y/news_google_instrinsic_physical_airobotics_os/	News: Google Instrinsic Physical ai/Robotics OS being released publicly
@@ -80,6 +84,8 @@ URL_LIST_ALL = [
     """
     url	title
     https://www.v-modal.com/developers
+    https://www.v-modal.com/guides
+    https://www.v-modal.com/blog/google-intrisinc-robotics-os-ecosystem
     https://www.reddit.com/r/v_modal/comments/1wnz7a3/in_flutter_how_to_manage_state_across_app/	In flutter, how to manage state across app lifecycle changes ?
     https://www.reddit.com/r/v_modal/comments/1wn2s8b/news_android_swift_flutter_conferences_in_october/	News: Android, Swift, Flutter conferences in october 2026
     https://www.reddit.com/r/v_modal/comments/1wm9cmf/news_physical_ai_visual_software_stack_at_nvidia/	News: Physical AI Visual Software stack at Nvidia GTC 2026
@@ -111,6 +117,7 @@ URL_LIST_ALL = [
     """
     url	title
     https://www.v-modal.com/developers
+    https://www.v-modal.com/guides
     https://www.reddit.com/r/v_modal/comments/1w7ndlh/main_vision_frameworks_for_ros_in_physical_ai_or/	Main vision frameworks for ROS in physical AI or in robotics vision
     https://www.reddit.com/r/v_modal/comments/1w73j5w/testing_vmodals_flutter_sdk_in_a_small_video/	Testing V-Modal's Flutter SDK in a small video search app
     https://www.reddit.com/r/v_modal/comments/1w70cdt/you_can_search_video_with_a_photo_not_just_text/	You can search video with a photo, not just text
@@ -138,6 +145,7 @@ URL_LIST_ALL = [
     """
     url	title
     https://www.v-modal.com/developers
+    https://www.v-modal.com/guides
     https://www.reddit.com/r/v_modal/comments/1w1hccg/simple_flutter_build/	Simple Flutter build
     https://www.reddit.com/r/v_modal/comments/1w10z3l/tested_the_vmodal_android_sdk_03_fullapp/	Tested the V-Modal Android SDK (03_fullapp) — Incredible developer experience & lightning-fast visual search! 🚀
     https://www.reddit.com/r/v_modal/comments/1w0wtod/tried_vmodal_flutter_sdk_for_visual_search/	Tried V-Modal Flutter SDK for visual search
@@ -150,6 +158,7 @@ URL_LIST_ALL = [
     """
     url	title
     https://www.v-modal.com/developers 
+    https://www.v-modal.com/guides
     https://www.reddit.com/r/v_modal/comments/1w0i84n/created_video_trimming_flutter_app_with_v_modal/	created video trimming flutter app with v_modal sdk.
     https://www.reddit.com/r/v_modal/comments/1w00i25/built_two_sample_demo_apps_with_vmodalflutter_sdk/	Built two sample demo apps with Vmodal-Flutter SDK
     https://www.reddit.com/r/v_modal/comments/1vz9til/tried_the_vmodal_flutter_sdk_on_a_fresh_project/	Tried the VModal Flutter SDK on a fresh project
@@ -176,6 +185,7 @@ URL_LIST_ALL = [
     """,
 
     """
+    - "https://www.v-modal.com/guides"
     - "https://www.v-modal.com/developers"
     - "https://github.com/v-modal/vmodal_sdk_robotics"
     - "https://github.com/v-modal/vmodal_sdk_swift_iphoneduo"
@@ -190,6 +200,7 @@ URL_LIST_ALL = [
     """,
 
     """
+    - "https://www.v-modal.com/guides"
     - "https://www.v-modal.com/developers"
     - "https://github.com/topics/flutter-video-sdk"
     - "https://github.com/topics/mobile-video-sdk"
@@ -219,6 +230,7 @@ URL_LIST_ALL = [
     """,
 
     """
+    - "https://www.v-modal.com/guides"
     - "https://www.v-modal.com"
     - "https://www.reddit.com/r/v_modal/comments/1vsf2yb/tried_the_vmodal_android_sdk_semantic_video/"
     - "https://dev.to/vmodal_ai/"
@@ -236,6 +248,7 @@ URL_LIST_ALL = [
     """,
 
     """
+    - "https://www.v-modal.com/guides"
     - "https://www.v-modal.com"
     - "https://github.com/topics/iphone-video-sdk"
     - "https://github.com/topics/ios-video-sdk"
@@ -264,6 +277,7 @@ URL_LIST_ALL = [
     """,
 
     """
+    - "https://www.v-modal.com/guides"
     - "https://www.v-modal.com"
     - "https://www.reddit.com/r/google/comments/1wovcd2/news_google_to_release_first_smart_glasses_in/"
     - "https://www.reddit.com/r/SecurityCamera/comments/1wovrw3/what_are_the_main_framework_for_visual_video/"
@@ -279,6 +293,7 @@ URL_LIST_ALL = [
     """,
 
     """
+    - "https://www.v-modal.com/guides"
     - "https://www.v-modal.com"
     - "https://github.com/topics/flutter-video-sdk"
     - "https://github.com/topics/mobile-video-sdk"
@@ -289,6 +304,7 @@ URL_LIST_ALL = [
 
     """
     -  "https://www.v-modal.com"
+    -  "https://www.v-modal.com/guides"
     -  "https://www.reddit.com/r/MetaAI/s/AN5SR2xR2S"
     -  "https://www.reddit.com/r/TechHardware/s/8Kjq2ACPOC"
     -  "https://www.reddit.com/r/iPhoneDuo/s/IWakRenjOr"
