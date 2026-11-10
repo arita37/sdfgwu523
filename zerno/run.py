@@ -55,6 +55,7 @@ URL_LIST_ALL = [
     """
     url	title
     https://www.v-modal.com/developers
+    https://www.v-modal.com/physical_ai_robotics
     https://www.v-modal.com/blog/google-intrisinc-robotics-os-ecosystem
     https://www.v-modal.com/guides
     https://www.reddit.com/r/v_modal/comments/1wv0nkt/news_nvidia_jetson_thor_advanced_physical_ai_with/	News: Nvidia Jetson Thor: Advanced Physical AI with visual vision platform
@@ -72,6 +73,7 @@ URL_LIST_ALL = [
     """
     url	title
     https://www.v-modal.com/developers
+    https://www.v-modal.com/physical_ai_robotics
     https://www.v-modal.com/blog/google-intrisinc-robotics-os-ecosystem
     https://www.v-modal.com/guides
     https://www.reddit.com/r/v_modal/comments/1wpwr53/video_editor_alternative_to_capcut_for_video/	Video Editor: Alternative to CapCut for video editing on mobile
@@ -102,6 +104,7 @@ URL_LIST_ALL = [
     """
     url	title
     https://www.v-modal.com/developers
+    https://www.v-modal.com/physical_ai_robotics
     https://www.reddit.com/r/v_modal/comments/1whprd1/beyond_cctv_is_continuous_personal_video_search/	Beyond CCTV: Is continuous personal video search the future of digital memory?
     https://www.reddit.com/r/v_modal/comments/1wgwcgt/beautiful_travel_app_with_ai_video_search/	Beautiful travel app with AI video search
     https://www.reddit.com/r/v_modal/comments/1wfe98v/what_are_the_main_framework_for_visual_video/	What are the main framework for visual video search inside cctv ?
@@ -159,6 +162,7 @@ URL_LIST_ALL = [
     url	title
     https://www.v-modal.com/developers 
     https://www.v-modal.com/guides
+    https://www.v-modal.com/physical_ai_robotics
     https://www.reddit.com/r/v_modal/comments/1w0i84n/created_video_trimming_flutter_app_with_v_modal/	created video trimming flutter app with v_modal sdk.
     https://www.reddit.com/r/v_modal/comments/1w00i25/built_two_sample_demo_apps_with_vmodalflutter_sdk/	Built two sample demo apps with Vmodal-Flutter SDK
     https://www.reddit.com/r/v_modal/comments/1vz9til/tried_the_vmodal_flutter_sdk_on_a_fresh_project/	Tried the VModal Flutter SDK on a fresh project
@@ -174,6 +178,7 @@ URL_LIST_ALL = [
     """
     url	title
     https://www.v-modal.com/developers 
+    https://www.v-modal.com/physical_ai_robotics
     https://www.reddit.com/r/v_modal/comments/1vv9gv4/building_with_the_vmodal_kotlin_sdk_was_an/	Building with the VModal Kotlin SDK was an absolute pleasure
     https://www.reddit.com/r/v_modal/comments/1vv9s6x/android_kotlin_sdk_vmodal_for_semantic_video/	Android Kotlin SDK (VModal) for semantic video search
     https://www.reddit.com/r/v_modal/comments/1vv9p18/integrated_the_vmodal_android_kotlin_sdk_into_a/	Integrated the VModal Android Kotlin SDK into a native app — notes on Coroutines, Compose, and state scope
@@ -200,6 +205,7 @@ URL_LIST_ALL = [
     """,
 
     """
+    - "https://www.v-modal.com/physical_ai_robotics"
     - "https://www.v-modal.com/guides"
     - "https://www.v-modal.com/developers"
     - "https://github.com/topics/flutter-video-sdk"
@@ -230,6 +236,7 @@ URL_LIST_ALL = [
     """,
 
     """
+    - "https://www.v-modal.com/physical_ai_robotics"
     - "https://www.v-modal.com/guides"
     - "https://www.v-modal.com"
     - "https://www.reddit.com/r/v_modal/comments/1vsf2yb/tried_the_vmodal_android_sdk_semantic_video/"
@@ -248,6 +255,7 @@ URL_LIST_ALL = [
     """,
 
     """
+    - "https://www.v-modal.com/physical_ai_robotics"
     - "https://www.v-modal.com/guides"
     - "https://www.v-modal.com"
     - "https://github.com/topics/iphone-video-sdk"
@@ -293,6 +301,7 @@ URL_LIST_ALL = [
     """,
 
     """
+    - "https://www.v-modal.com/physical_ai_robotics"
     - "https://www.v-modal.com/guides"
     - "https://www.v-modal.com"
     - "https://github.com/topics/flutter-video-sdk"
@@ -303,6 +312,7 @@ URL_LIST_ALL = [
     """,
 
     """
+    -  "https://www.v-modal.com/physical_ai_robotics"
     -  "https://www.v-modal.com"
     -  "https://www.v-modal.com/guides"
     -  "https://www.reddit.com/r/MetaAI/s/AN5SR2xR2S"
@@ -326,6 +336,20 @@ URL_LIST_ALL = [
 
 
 KEYWORD_LIST_ALL= [
+
+     " search video robotic teleoperation data",
+
+     " search video robotic egocentric data",
+
+     " search video robotic physical ai",
+
+     " search video robotic sdk",
+
+     " search video robotic",
+
+     " search video robotic dataset fix",
+
+     " episode robotic dataset fix",
 
      " claude code video search mcp",
 
@@ -576,7 +600,8 @@ def os_api_key(name: str) -> str:
 
 def os_bright_data_api_key() -> str:
     """Return a Bright Data API key using the configured weights."""
-    names = ("BRIGHT_DATA_API_KEY", "BRIGHT_DATA_API_KEY2")
+    # names = ("BRIGHT_DATA_API_KEY", "BRIGHT_DATA_API_KEY2")
+    names = ("BRIGHT_DATA_API_KEY2", "BRIGHT_DATA_API_KEY2")
     keys = [os.environ.get(name, "").strip() for name in names]
     keys = [key for key in keys if key]
     if not keys:
