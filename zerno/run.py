@@ -326,12 +326,20 @@ URL_LIST_ALL = [
 
 
 KEYWORD_LIST_ALL= [
+
+     " claude code video search mcp",
+
+     " codex video search mcp",
+
+     " video search mcp",
+
+     " visual video search mcp",
+
     "flutter video sdk",
     "android video sdk",
     "ios swift video sdk",
     "smart glasses sdk",
     "vmodal ai video search",
-    "jev tools",
     "dashcam video search",
     "cctv video search",
     "physical ai robotics",
@@ -341,7 +349,6 @@ KEYWORD_LIST_ALL= [
     "visual video search",
     "ai video search",
     "video search with ai",
-    "ai image search",
     "multimodal video search",
     "search for physical ai",
     "video search for mobile",
@@ -370,6 +377,7 @@ KEYWORD_LIST_ALL= [
     "android video sdk",
     "robotics video sdk",
     "physical ai sdk",
+    "robotics data label sdk",
     "robotics sdk",
     "robotics lerobot sdk",
     "robotics lerobot sdk github",
@@ -577,7 +585,7 @@ def os_bright_data_api_key() -> str:
         )
     if len(keys) == 1:
         return keys[0]
-    return random.choices(keys, weights=(30, 70), k=1)[0]
+    return random.choices(keys, weights=(1, 99), k=1)[0]
 
 
 def api_json(
