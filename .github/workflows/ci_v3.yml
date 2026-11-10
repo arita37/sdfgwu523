@@ -1,4 +1,4 @@
-name: aa_auto
+name: aa_auto_v3
 
 # Required repository secret:
 #   BRIGHT_DATA_API_KEY - Bright Data API key with Google AI Mode access
