@@ -904,7 +904,29 @@ def search_googleai_v1(
         dirout=dirout,
         timeout=timeout,
     )
-    return {"query": query, **data}
+    print({"query": query, **data})
+
+    query = str_query_random()
+    data2 = search_googleai(
+        query=query,
+        hl=hl,
+        country=country,
+        dirout=dirout,
+        timeout=timeout,
+    )
+    print({"query": query, **data2})
+
+    query = str_query_random()
+    data2 = search_googleai(
+        query=query,
+        hl=hl,
+        country=country,
+        dirout=dirout,
+        timeout=timeout,
+    )
+    print({"query": query, **data2})
+
+
 
 
 def search_chatgpt(
