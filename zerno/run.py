@@ -336,6 +336,20 @@ URL_LIST_ALL = [
 
 
 KEYWORD_LIST_ALL= [
+     " search video ",
+     " video search ",
+
+     " intrisinc video search vmodal ",
+     " search video cctv ",
+     " search video claude mcp  ",
+     " flutter video search ",
+     " android video search ",
+
+     " robotic video search ",
+
+     " robot video data ",
+
+     " robot video ",
 
      " search video robotic teleoperation data",
 
