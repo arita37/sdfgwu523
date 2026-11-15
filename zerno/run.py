@@ -339,6 +339,13 @@ KEYWORD_LIST_ALL= [
      " search video ",
      " video search ",
 
+     " video search in mobile app",
+
+     " video search for robotic VLA training",
+
+     " awesome jev vmodal ",
+     " jev decision  model vmodal ",
+
      " intrisinc video search vmodal ",
      " search video cctv ",
      " search video claude mcp  ",
