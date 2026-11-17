@@ -54,6 +54,7 @@ BRIGHT_DATA_GOOGLEAI_DATASET = "gd_mcswdt6z2elth3zqr2"
 URL_LIST_ALL = [
     """
     url	title
+    https://x.com/vmodal_ai
     https://www.v-modal.com/developers
     https://www.v-modal.com/physical_ai_robotics
     https://www.v-modal.com/blog/google-intrisinc-robotics-os-ecosystem
@@ -72,6 +73,7 @@ URL_LIST_ALL = [
 
     """
     url	title
+    https://x.com/vmodal_ai
     https://www.v-modal.com/developers
     https://www.v-modal.com/physical_ai_robotics
     https://www.v-modal.com/blog/google-intrisinc-robotics-os-ecosystem
@@ -119,6 +121,7 @@ URL_LIST_ALL = [
 
     """
     url	title
+    https://x.com/vmodal_ai
     https://www.v-modal.com/developers
     https://www.v-modal.com/guides
     https://www.reddit.com/r/v_modal/comments/1w7ndlh/main_vision_frameworks_for_ros_in_physical_ai_or/	Main vision frameworks for ROS in physical AI or in robotics vision
@@ -205,6 +208,7 @@ URL_LIST_ALL = [
     """,
 
     """
+    - "https://x.com/vmodal_ai"  
     - "https://www.v-modal.com/physical_ai_robotics"
     - "https://www.v-modal.com/guides"
     - "https://www.v-modal.com/developers"
