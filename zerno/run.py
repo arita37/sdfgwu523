@@ -53,6 +53,30 @@ BRIGHT_DATA_GOOGLEAI_DATASET = "gd_mcswdt6z2elth3zqr2"
 # Keep each URL block below 1,800 characters without splitting URL/title rows.
 URL_LIST_ALL = [
     """
+       -  https://www.reddit.com/r/v_modal/comments/1xyok06/news_awesome_jev_system_one_toolkit_typesafe_ai/
+       -  https://www.reddit.com/r/v_modal/comments/1xylyhs/news_visual_video_search_on_x/
+       -  https://www.reddit.com/r/v_modal/comments/1xw2tn3/news_conference_on_robot_learning_2026_world/
+       -  https://www.reddit.com/r/v_modal/comments/1xr13et/news_visual_search_inside_video_content_fashion/
+       -  https://www.reddit.com/r/v_modal/comments/1xkby3s/news_rokid_ai_smart_glasses_sdk_technical_review/
+       -  https://www.reddit.com/r/v_modal/comments/1xhork0/news_nvidia_full_stack_isaac_physical_ai_platform/
+       -  https://www.reddit.com/r/v_modal/comments/1xgtiem/news_google_intrinsic_community_platform_for/
+
+    """,
+
+    """
+       -  https://www.reddit.com/r/v_modal/comments/1xf402x/visual_video_search_for_mobile_in_real_estate/
+       -  https://www.reddit.com/r/v_modal/comments/1xeaoq9/visual_search_inside_architecture_real_estate/
+       -  https://www.reddit.com/r/v_modal/comments/1xdgdn3/news_iphone_duo_app_for_music_creation_and_mixing/
+       -  https://www.reddit.com/r/v_modal/comments/1xau5e7/google_intrinsic_technical_deep_dive_in/
+       -  https://www.reddit.com/r/v_modal/comments/1x9y7fb/news_technical_report_for_visual_video_search/
+       -  https://www.reddit.com/r/v_modal/comments/1x9wp4v/reply_earns_nvidia_physical_ai_specialization_for/
+       -  https://www.reddit.com/r/v_modal/comments/1x86ifj/how_can_flutter_applications_efficiently_process/
+       -  https://www.reddit.com/r/v_modal/comments/1x7hjlm/news_ai_agent_coding_for_real_world_coding/
+       -  https://www.reddit.com/r/v_modal/comments/1x6xcy7/what_are_the_biggest_performance_challenges_when/
+
+    """, 
+
+    """
     url	title
     https://x.com/vmodal_ai
     https://www.v-modal.com/developers
@@ -134,6 +158,7 @@ URL_LIST_ALL = [
 
     """
     url	title
+    "https://x.com/vmodal_ai"
     https://www.v-modal.com/developers
     https://www.reddit.com/r/v_modal/comments/1w73j5w/testing_vmodals_flutter_sdk_in_a_small_video/	Testing V-Modal's Flutter SDK in a small video search app
     https://www.reddit.com/r/v_modal/comments/1w70cdt/you_can_search_video_with_a_photo_not_just_text/	You can search video with a photo, not just text
@@ -150,6 +175,7 @@ URL_LIST_ALL = [
 
     """
     url	title
+    https://x.com/vmodal_ai
     https://www.v-modal.com/developers
     https://www.v-modal.com/guides
     https://www.reddit.com/r/v_modal/comments/1w1hccg/simple_flutter_build/	Simple Flutter build
@@ -180,6 +206,7 @@ URL_LIST_ALL = [
 
     """
     url	title
+    - "https://x.com/vmodal_ai"
     https://www.v-modal.com/developers 
     https://www.v-modal.com/physical_ai_robotics
     https://www.reddit.com/r/v_modal/comments/1vv9gv4/building_with_the_vmodal_kotlin_sdk_was_an/	Building with the VModal Kotlin SDK was an absolute pleasure
@@ -240,6 +267,7 @@ URL_LIST_ALL = [
     """,
 
     """
+    - "https://x.com/vmodal_ai"
     - "https://www.v-modal.com/physical_ai_robotics"
     - "https://www.v-modal.com/guides"
     - "https://www.v-modal.com"
@@ -259,6 +287,7 @@ URL_LIST_ALL = [
     """,
 
     """
+    - "https://x.com/vmodal_ai"
     - "https://www.v-modal.com/physical_ai_robotics"
     - "https://www.v-modal.com/guides"
     - "https://www.v-modal.com"
@@ -289,6 +318,7 @@ URL_LIST_ALL = [
     """,
 
     """
+    - "https://x.com/vmodal_ai"
     - "https://www.v-modal.com/guides"
     - "https://www.v-modal.com"
     - "https://www.reddit.com/r/google/comments/1wovcd2/news_google_to_release_first_smart_glasses_in/"
@@ -305,6 +335,7 @@ URL_LIST_ALL = [
     """,
 
     """
+    - "https://x.com/vmodal_ai"
     - "https://www.v-modal.com/physical_ai_robotics"
     - "https://www.v-modal.com/guides"
     - "https://www.v-modal.com"
@@ -316,6 +347,7 @@ URL_LIST_ALL = [
     """,
 
     """
+    - "https://x.com/vmodal_ai"
     -  "https://www.v-modal.com/physical_ai_robotics"
     -  "https://www.v-modal.com"
     -  "https://www.v-modal.com/guides"
