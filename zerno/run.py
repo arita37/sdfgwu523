@@ -411,7 +411,7 @@ KEYWORD_LIST_ALL= [
 
      " robot video data ",
 
-     " robot video ",
+     " robot video api ",
 
      " search video robotic teleoperation data",
 
