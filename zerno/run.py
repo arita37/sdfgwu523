@@ -375,11 +375,35 @@ KEYWORD_LIST_ALL= [
      " search video ",
      " video search ",
 
-        "Physical AI",
-        "Embodied AI",
+    "video search for mobile",
+    "mobile video search api",
+    "mobile video search",
+    "ai video search api",
+    "multimodal video search api",
+    "ai video search mobile",
+    "multimodal video search mobile api",
+    "visual video search mobile api",
+    "ai video search mobile api",
+    "image search mobile api",
+    "ai image search mobile api",
+    "image search ai mobile api",
+    "video content search mobile api",
+    "ai for search mobile api",
+    "search for physical ai mobile api",
+    "video search api",
+    "robotics video api",
+    "physical ai api",
+    "robotics data label api",
+    "robotics api",
+    "robotics lerobot api",
+    "robotics lerobot api github",
+
+
+        "Physical AI framework",
+        "Embodied AI framework",
         "Edge Intelligence",
         "Edge AI",
-        "Vision-language-action models",
+        "Vision language action models",
         "VLA models",
         "Sim-to-Real gap",
         "Sim2Real",
@@ -419,7 +443,7 @@ KEYWORD_LIST_ALL= [
 
      " search video robotic physical ai",
 
-     " search video robotic sdk",
+     " search video robotic api sdk",
 
      " search video robotic",
 
